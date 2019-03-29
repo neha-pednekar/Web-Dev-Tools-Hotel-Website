@@ -1,0 +1,73 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+<div class="internal-pages trans-header sticky booking-page">
+
+    <!-- Internal Page Header -->
+    <div class="internal-page-title about-page">
+        <ol class="breadcrumb">
+            <!-- Internal Page Breadcrumb -->
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="active">@ViewData["Title"]</li>
+        </ol>
+    </div>
+
+    <div id="booking-page-content">
+        <div class="booking-container container">
+            <div class="heading-box">
+                <h2>Use a local account to <span>log in</span></h2>
+            </div>
+            <div class="col-lg-4 col-lg-offset-4">
+                <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Log in</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a  id="loginurllinks" asp-action="ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a  id="loginurllinks" asp-action="Register" 
+                               asp-route-returnurl="@ViewData["ReturnUrl"]">Register as a new user?</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+                       
+            
+                    
+
+            @section Scripts {
+                @await Html.PartialAsync("_ValidationScriptsPartial")
+            }
+            </div>
+        </div>
+    </div>

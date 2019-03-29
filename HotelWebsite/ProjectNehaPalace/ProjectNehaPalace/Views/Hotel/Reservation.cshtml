@@ -1,0 +1,119 @@
+﻿@using ProjectNehaPalace.Models.HotelViewModels;
+@model ReservationModel;
+
+<div class="internal-pages trans-header sticky booking-page">
+
+    <!-- Internal Page Header -->
+    <div class="internal-page-title about-page">
+        <ol class="breadcrumb">
+            <!-- Internal Page Breadcrumb -->
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="active">Book Rooms</li>
+        </ol>
+    </div>
+    <!-- End of Internal Page Header -->
+
+    <!-- Booking Page Container -->
+    <div id="booking-page-content">
+        <div class="booking-container container">
+
+            <div class="heading-box">
+                <h2>Book <span>Now</span></h2>
+            </div>
+            <div class="main-booking-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur alias minus, 
+                commodi eligendi reprehenderit ea illum placeat recusandae architecto magnam aspernatur 
+                doloremque, odio maxime ducimus voluptates eveniet cumque assumenda delectus? Quisquam 
+                nobis, eligendi. Earum dolore culpa tenetur qui at, voluptas repellendus quisquam minima 
+                incidunt. Asperiores.
+            </div>
+
+
+            <!-- The tabular structure uses the Bootstrap tab structure! -->
+            <ul class="nav nav-tabs nav-justified" id="booking-tabs">
+                <!-- Booking Tabs -->
+                <li class="active" id="tab1">
+                    <!-- Add Active class for the active tab -->
+                    <a href="#booking-choose-date" data-toggle="tab" class="nav_link">
+                        <span class="number">1</span><!-- Tab number -->
+                        <span class="title">Choose <b>Date</b></span><!-- Tab title -->
+                    </a>
+                </li>
+                <li id="tab2">
+                    <a href="#booking-choose-room" data-toggle="tab"  class="nav_link">
+                        <span class="number">2</span><!-- Tab number -->
+                        <span class="title">Choose <b>Room</b></span><!-- Tab title -->
+                    </a>
+                </li>
+                <li id="tab3">
+                    <a href="#booking-reservation" data-toggle="tab"  class="nav_link">
+                        <span class="number">3</span><!-- Tab number -->
+                        <span class="title">Reservation</span><!-- Tab title -->
+                    </a>
+                </li>
+                <li  id="tab4">
+                    <a href="#booking-confirmation" data-toggle="tab"  class="nav_link">
+                        <span class="number">4</span><!-- Tab number -->
+                        <span class="title">Confirmation</span><!-- Tab title -->
+                    </a>
+                </li>
+            </ul>
+
+            @*<form class="form-inline" id="reservationSummaryForm" method="post"
+        action="@Url.Action("ReservationSummary", "Hotel", Model)">
+                  @Html.HiddenFor(m => m.ReservationTabStatus)*@
+            <!-- Tab main content container -->
+    @*@using (Html.BeginForm("Reservation", "Hotel", FormMethod.Post, new { @id = "saveForm" }))
+    {*@
+            <div id="booking-tab-contents" class="tab-content">
+                <!-- Tab Contents ( Do Not Change / Remove the ID) -->
+                <div class="tab-pane fadeInUp in active clearfix" id="booking-choose-date">
+                    <!-- Check In / Check Out section -->
+                    @{Html.RenderPartial("_ReservationTab1", Model); }
+                </div>
+                <!-- Tab Contents ( Do Not Change / Remove the ID) -->
+                <div class="tab-pane fadeInUp clearfix" id="booking-choose-room">
+                    @{Html.RenderPartial("_ReservationTab2", Model); }
+                </div>
+                <!-- Tab Contents ( Do Not Change / Remove the ID) -->
+                <div class="tab-pane fadeInUp clearfix" id="booking-reservation">
+                    @{Html.RenderPartial("_ReservationTab3", Model); }
+                </div>
+
+                <!-- Tab Contents ( Do Not Change / Remove the ID) -->
+                <div class="tab-pane fadeInUp clearfix" id="booking-confirmation">
+                    @{Html.RenderPartial("_ReservationTab4", Model); }
+                </div>
+                @*<button type="button" id="changetabbutton" class="btn btn-primary ">Set next tab</button>*@
+
+            </div>
+    @* } *@
+        </div>
+</div>
+<!-- End of Booking Page Container -->
+
+</div>
+
+
+@*@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#resSummarySubmit').click(function (e) {
+                e.preventDefault();
+                // recommended in SO, does not appear to be required
+                $('#reservationSummaryForm').attr('action', '/Hotel/ReservationSummary');
+                $('#reservationSummaryForm').submit();
+
+
+                var lastActiveTab = ($('#ActiveTab').val() !== '') ? $('#ActiveTab').val() : 'booking-reservation';
+                $('#booking-tabs a[href="#' + lastActiveTab + '"]').tab('show');
+                $("#booking-tabs a").click(function () {
+                    $('#ActiveTab').val($(this).attr("href").replace("#", ""));
+                });
+
+            });
+
+
+        });
+    </script>
+}*@

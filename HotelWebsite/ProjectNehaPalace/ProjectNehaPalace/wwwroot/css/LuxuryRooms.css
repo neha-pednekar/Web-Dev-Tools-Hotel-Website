@@ -1,0 +1,238 @@
+﻿/**
+ * Luxury Rooms Style
+ */
+#luxury-rooms, #special-dishes, #special-packages-type-2 {
+    background: #777;
+    padding: 1px 0 100px;
+}
+
+    #luxury-rooms h2, #special-dishes h2, #special-packages-type-2 h2 {
+        margin-top: 0;
+    }
+
+    #luxury-rooms .room-boxes, #special-dishes .room-boxes, #luxury-rooms .package-boxes, #special-dishes .package-boxes, #special-packages-type-2 .room-boxes, #special-packages-type-2 .package-boxes {
+        height: 400px;
+        overflow: hidden;
+        margin-bottom: 40px;
+        position: relative;
+        border: 1px solid #C5A46D;
+    }
+
+        #luxury-rooms .room-boxes:last-child, #special-dishes .room-boxes:last-child, #luxury-rooms .package-boxes:last-child, #special-dishes .package-boxes:last-child, #special-packages-type-2 .room-boxes:last-child, #special-packages-type-2 .package-boxes:last-child {
+            margin-bottom: 0;
+        }
+
+        #luxury-rooms .room-boxes:before, #special-dishes .room-boxes:before, #luxury-rooms .package-boxes:before, #special-dishes .package-boxes:before, #special-packages-type-2 .room-boxes:before, #special-packages-type-2 .package-boxes:before {
+            display: block;
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all 0.6s ease;
+            -o-transition: all 0.6s ease;
+            transition: all 0.6s ease;
+        }
+
+        #luxury-rooms .room-boxes .room-img, #special-dishes .room-boxes .room-img, #luxury-rooms .room-boxes .package-img, #special-dishes .room-boxes .package-img, #luxury-rooms .package-boxes .room-img, #special-dishes .package-boxes .room-img, #luxury-rooms .package-boxes .package-img, #special-dishes .package-boxes .package-img, #special-packages-type-2 .room-boxes .room-img, #special-packages-type-2 .room-boxes .package-img, #special-packages-type-2 .package-boxes .room-img, #special-packages-type-2 .package-boxes .package-img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            max-width: 100%;
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            transition: all 1s ease;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        #luxury-rooms .room-boxes .room-details, #special-dishes .room-boxes .room-details, #luxury-rooms .room-boxes .package-details, #special-dishes .room-boxes .package-details, #luxury-rooms .package-boxes .room-details, #special-dishes .package-boxes .room-details, #luxury-rooms .package-boxes .package-details, #special-dishes .package-boxes .package-details, #special-packages-type-2 .room-boxes .room-details, #special-packages-type-2 .room-boxes .package-details, #special-packages-type-2 .package-boxes .room-details, #special-packages-type-2 .package-boxes .package-details {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            color: #FFFFFF;
+            padding: 170px 30px 30px;
+            height: 100%;
+            z-index: 1;
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+            #luxury-rooms .room-boxes .room-details .title, #special-dishes .room-boxes .room-details .title, #luxury-rooms .room-boxes .package-details .title, #special-dishes .room-boxes .package-details .title, #luxury-rooms .package-boxes .room-details .title, #special-dishes .package-boxes .room-details .title, #luxury-rooms .package-boxes .package-details .title, #special-dishes .package-boxes .package-details .title, #special-packages-type-2 .room-boxes .room-details .title, #special-packages-type-2 .room-boxes .package-details .title, #special-packages-type-2 .package-boxes .room-details .title, #special-packages-type-2 .package-boxes .package-details .title {
+                font-size: 24px;
+                font-weight: bold;
+                letter-spacing: -1px;
+                color: #C5A46D;
+            }
+
+            #luxury-rooms .room-boxes .room-details .description, #special-dishes .room-boxes .room-details .description, #luxury-rooms .room-boxes .package-details .description, #special-dishes .room-boxes .package-details .description, #luxury-rooms .package-boxes .room-details .description, #special-dishes .package-boxes .room-details .description, #luxury-rooms .package-boxes .package-details .description, #special-dishes .package-boxes .package-details .description, #special-packages-type-2 .room-boxes .room-details .description, #special-packages-type-2 .room-boxes .package-details .description, #special-packages-type-2 .package-boxes .room-details .description, #special-packages-type-2 .package-boxes .package-details .description {
+                margin: 20px 0;
+                max-height: 100px;
+                overflow: hidden;
+                color: #333333;
+            }
+
+            #luxury-rooms .room-boxes .room-details .btn, #special-dishes .room-boxes .room-details .btn, #luxury-rooms .room-boxes .room-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #luxury-rooms .room-boxes .room-details a, #special-dishes .room-boxes .room-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-dishes .room-boxes .room-details a, #luxury-rooms .room-boxes .package-details .btn, #special-dishes .room-boxes .package-details .btn, #luxury-rooms .room-boxes .package-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #luxury-rooms .room-boxes .package-details a, #special-dishes .room-boxes .package-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-dishes .room-boxes .package-details a, #luxury-rooms .package-boxes .room-details .btn, #special-dishes .package-boxes .room-details .btn, #luxury-rooms .package-boxes .room-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #luxury-rooms .package-boxes .room-details a, #special-dishes .package-boxes .room-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-dishes .package-boxes .room-details a, #luxury-rooms .package-boxes .package-details .btn, #special-dishes .package-boxes .package-details .btn, #luxury-rooms .package-boxes .package-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #luxury-rooms .package-boxes .package-details a, #special-dishes .package-boxes .package-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-dishes .package-boxes .package-details a, #special-packages-type-2 .room-boxes .room-details .btn, #special-packages-type-2 .room-boxes .room-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-packages-type-2 .room-boxes .room-details a, #special-packages-type-2 .room-boxes .package-details .btn, #special-packages-type-2 .room-boxes .package-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-packages-type-2 .room-boxes .package-details a, #special-packages-type-2 .package-boxes .room-details .btn, #special-packages-type-2 .package-boxes .room-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-packages-type-2 .package-boxes .room-details a, #special-packages-type-2 .package-boxes .package-details .btn, #special-packages-type-2 .package-boxes .package-details aside.sidebar .widget.widget_tag_cloud .tagcloud a, aside.sidebar .widget.widget_tag_cloud .tagcloud #special-packages-type-2 .package-boxes .package-details a {
+                padding: 6px 30px;
+            }
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active,
+.btn-default.active, .open > .btn-default.dropdown-toggle {
+    color: #ffffff;
+    background-color: #b78d49;
+    border-color: #af8846;
+}
+
+.btn-default {
+    color: #FFFFFF;
+    background-color: #C5A46D;
+    border-color: #C5A46D;
+}
+
+    .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+        color: #FFFFFF;
+        background-color: #b78d49;
+        border-color: #af8846;
+    }
+
+    .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+        background-image: none;
+    }
+
+    .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default.focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
+        background-color: #C5A46D;
+        border-color: #C5A46D;
+    }
+
+    .btn-default .badge {
+        color: #C5A46D;
+        background-color: #FFFFFF;
+    }
+
+        #luxury-rooms .room-boxes .price-container, #special-dishes .room-boxes .price-container, #luxury-rooms .package-boxes .price-container, #special-dishes .package-boxes .price-container, #special-packages-type-2 .room-boxes .price-container, #special-packages-type-2 .package-boxes .price-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            z-index: 2;
+        }
+
+            #luxury-rooms .room-boxes .price-container .price, #special-dishes .room-boxes .price-container .price, #luxury-rooms .package-boxes .price-container .price, #special-dishes .package-boxes .price-container .price, #special-packages-type-2 .room-boxes .price-container .price, #special-packages-type-2 .package-boxes .price-container .price {
+                position: absolute;
+                left: 53%;
+                top: 50%;
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -ms-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+                font: 17px/3em "Lobster", Arial, Helvetica, sans-serif;
+                color: #C5A46D;
+                padding: 0 20px;
+                opacity: 0;
+                filter: alpha(opacity=0);
+                -webkit-transition: all 0.8s ease;
+                -o-transition: all 0.8s ease;
+                transition: all 0.8s ease;
+            }
+
+                #luxury-rooms .room-boxes .price-container .price span, #special-dishes .room-boxes .price-container .price span, #luxury-rooms .package-boxes .price-container .price span, #special-dishes .package-boxes .price-container .price span, #special-packages-type-2 .room-boxes .price-container .price span, #special-packages-type-2 .package-boxes .price-container .price span {
+                    font-size: 40px;
+                    vertical-align: middle;
+                }
+
+        #luxury-rooms .room-boxes.right .room-details, #special-dishes .room-boxes.right .room-details, #luxury-rooms .room-boxes.right .package-details, #special-dishes .room-boxes.right .package-details, #luxury-rooms .package-boxes.right .room-details, #special-dishes .package-boxes.right .room-details, #luxury-rooms .package-boxes.right .package-details, #special-dishes .package-boxes.right .package-details, #special-packages-type-2 .room-boxes.right .room-details, #special-packages-type-2 .room-boxes.right .package-details, #special-packages-type-2 .package-boxes.right .room-details, #special-packages-type-2 .package-boxes.right .package-details {
+            position: absolute;
+            left: auto;
+            right: 0;
+            text-align: right;
+        }
+
+        #luxury-rooms .room-boxes.right .price-container, #special-dishes .room-boxes.right .price-container, #luxury-rooms .package-boxes.right .price-container, #special-dishes .package-boxes.right .price-container, #special-packages-type-2 .room-boxes.right .price-container, #special-packages-type-2 .package-boxes.right .price-container {
+            right: auto;
+            left: 0;
+        }
+
+        #luxury-rooms .room-boxes:hover:before, #special-dishes .room-boxes:hover:before, #luxury-rooms .package-boxes:hover:before, #special-dishes .package-boxes:hover:before, #special-packages-type-2 .room-boxes:hover:before, #special-packages-type-2 .package-boxes:hover:before {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #luxury-rooms .room-boxes:hover .package-img, #special-dishes .room-boxes:hover .package-img, #luxury-rooms .package-boxes:hover .package-img, #special-dishes .package-boxes:hover .package-img, #special-packages-type-2 .room-boxes:hover .package-img, #special-packages-type-2 .package-boxes:hover .package-img {
+            -moz-transform: scale(1.02) translateX(-50%) translateY(-50%);
+            -ms-transform: scale(1.02) translateX(-50%) translateY(-50%);
+            -webkit-transform: scale(1.02) translateX(-50%) translateY(-50%);
+            transform: scale(1.02) translateX(-50%) translateY(-50%);
+        }
+
+        #luxury-rooms .room-boxes:hover .room-details, #special-dishes .room-boxes:hover .room-details, #luxury-rooms .room-boxes:hover .package-details, #special-dishes .room-boxes:hover .package-details, #luxury-rooms .package-boxes:hover .room-details, #special-dishes .package-boxes:hover .room-details, #luxury-rooms .package-boxes:hover .package-details, #special-dishes .package-boxes:hover .package-details, #special-packages-type-2 .room-boxes:hover .room-details, #special-packages-type-2 .room-boxes:hover .package-details, #special-packages-type-2 .package-boxes:hover .room-details, #special-packages-type-2 .package-boxes:hover .package-details {
+            background: #FFFFFF;
+        }
+
+        #luxury-rooms .room-boxes:hover .price, #special-dishes .room-boxes:hover .price, #luxury-rooms .package-boxes:hover .price, #special-dishes .package-boxes:hover .price, #special-packages-type-2 .room-boxes:hover .price, #special-packages-type-2 .package-boxes:hover .price {
+            left: 50%;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+@media (max-width: 992px) {
+    #luxury-rooms .room-boxes, #special-dishes .room-boxes, #luxury-rooms .package-boxes, #special-dishes .package-boxes, #special-packages-type-2 .room-boxes, #special-packages-type-2 .package-boxes {
+        height: auto;
+    }
+
+        #luxury-rooms .room-boxes:before, #special-dishes .room-boxes:before, #luxury-rooms .package-boxes:before, #special-dishes .package-boxes:before, #special-packages-type-2 .room-boxes:before, #special-packages-type-2 .package-boxes:before {
+            display: none;
+        }
+
+        #luxury-rooms .room-boxes .room-img, #special-dishes .room-boxes .room-img, #luxury-rooms .room-boxes .package-img, #special-dishes .room-boxes .package-img, #luxury-rooms .package-boxes .room-img, #special-dishes .package-boxes .room-img, #luxury-rooms .package-boxes .package-img, #special-dishes .package-boxes .package-img, #special-packages-type-2 .room-boxes .room-img, #special-packages-type-2 .room-boxes .package-img, #special-packages-type-2 .package-boxes .room-img, #special-packages-type-2 .package-boxes .package-img {
+            position: initial;
+            left: auto;
+            top: auto;
+            -moz-transform: translateX(0) translateY(0);
+            -ms-transform: translateX(0) translateY(0);
+            -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+        }
+
+        #luxury-rooms .room-boxes .price-container, #special-dishes .room-boxes .price-container, #luxury-rooms .package-boxes .price-container, #special-dishes .package-boxes .price-container, #special-packages-type-2 .room-boxes .price-container, #special-packages-type-2 .package-boxes .price-container {
+            width: 100%;
+            height: 100px;
+        }
+
+            #luxury-rooms .room-boxes .price-container .price, #special-dishes .room-boxes .price-container .price, #luxury-rooms .package-boxes .price-container .price, #special-dishes .package-boxes .price-container .price, #special-packages-type-2 .room-boxes .price-container .price, #special-packages-type-2 .package-boxes .price-container .price {
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+        #luxury-rooms .room-boxes .room-details, #special-dishes .room-boxes .room-details, #luxury-rooms .room-boxes .package-details, #special-dishes .room-boxes .package-details, #luxury-rooms .package-boxes .room-details, #special-dishes .package-boxes .room-details, #luxury-rooms .package-boxes .package-details, #special-dishes .package-boxes .package-details, #special-packages-type-2 .room-boxes .room-details, #special-packages-type-2 .room-boxes .package-details, #special-packages-type-2 .package-boxes .room-details, #special-packages-type-2 .package-boxes .package-details {
+            position: initial;
+            left: auto;
+            top: auto;
+            float: none;
+            width: 100%;
+            text-align: center;
+            padding: 30px;
+            background: #f9fafa;
+        }
+
+        #luxury-rooms .room-boxes.right .room-details, #special-dishes .room-boxes.right .room-details, #luxury-rooms .room-boxes.right .package-details, #special-dishes .room-boxes.right .package-details, #luxury-rooms .package-boxes.right .room-details, #special-dishes .package-boxes.right .room-details, #luxury-rooms .package-boxes.right .package-details, #special-dishes .package-boxes.right .package-details, #special-packages-type-2 .room-boxes.right .room-details, #special-packages-type-2 .room-boxes.right .package-details, #special-packages-type-2 .package-boxes.right .room-details, #special-packages-type-2 .package-boxes.right .package-details {
+            position: initial;
+            left: auto;
+            right: auto;
+            text-align: center;
+        }
+
+        #luxury-rooms .room-boxes:hover .room-img, #special-dishes .room-boxes:hover .room-img, #luxury-rooms .room-boxes:hover .package-img, #special-dishes .room-boxes:hover .package-img, #luxury-rooms .package-boxes:hover .room-img, #special-dishes .package-boxes:hover .room-img, #luxury-rooms .package-boxes:hover .package-img, #special-dishes .package-boxes:hover .package-img, #special-packages-type-2 .room-boxes:hover .room-img, #special-packages-type-2 .room-boxes:hover .package-img, #special-packages-type-2 .package-boxes:hover .room-img, #special-packages-type-2 .package-boxes:hover .package-img {
+            -moz-transform: scale(1.02) translateX(0) translateY(0);
+            -ms-transform: scale(1.02) translateX(0) translateY(0);
+            -webkit-transform: scale(1.02) translateX(0) translateY(0);
+            transform: scale(1.02) translateX(0) translateY(0);
+        }
+
+        #luxury-rooms .room-boxes:hover .room-details, #special-dishes .room-boxes:hover .room-details, #luxury-rooms .room-boxes:hover .package-details, #special-dishes .room-boxes:hover .package-details, #luxury-rooms .package-boxes:hover .room-details, #special-dishes .package-boxes:hover .room-details, #luxury-rooms .package-boxes:hover .package-details, #special-dishes .package-boxes:hover .package-details, #special-packages-type-2 .room-boxes:hover .room-details, #special-packages-type-2 .room-boxes:hover .package-details, #special-packages-type-2 .package-boxes:hover .room-details, #special-packages-type-2 .package-boxes:hover .package-details {
+            background: #ecedee;
+        }
+}

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ProjectNehaPalace.Models.HotelViewModels.RoomModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Availability Web API</h2>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoomType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoomTariff)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Availability)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoomsAvailable)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+                @if (item.RoomType == "0")
+                {
+                    <td>
+                        Single Room
+                    </td>
+                }
+                else if (item.RoomType == "1")
+                {
+                        <td>
+                            Double Room
+                        </td>
+                }
+                else if (item.RoomType == "2")
+                {
+                        <td>
+                            One Room Deluxe Suite
+                        </td>
+                }
+                else if (item.RoomType == "3")
+                {
+                        <td>
+                            Two Room Deluxe Suite
+                        </td>
+                }
+                else if (item.RoomType == "4")
+                {
+                        <td>
+                            Royal Suite
+                        </td>
+                }
+                else if (item.RoomType == "5")
+                {
+                        <td>
+                            King Suite
+                        </td>
+                }
+
+            <td>
+                $ @Html.DisplayFor(modelItem => item.RoomTariff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Availability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomsAvailable)
+            </td>
+            @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,82 @@
+﻿@model ProjectNehaPalace.Models.HotelViewModels.ReservationModel
+
+@using (Html.BeginForm("SaveBookingDates", "Hotel", FormMethod.Post,
+  new { @*enctype = "multipart/form-data",*@ id = "saveDateForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    <div class="input-daterange booking-dates">
+        <div class="booking-date-fields-container col-md-3 col-md-offset-2">
+            <!-- Do NOT change the "booking-date-fields-container" Class -->
+            @Html.Label("CheckinDate", "Check In: ")
+            @Html.TextBoxFor(m => m.CheckinDate, "",
+                              new { @class = "form-control datepicker", @style = "width: 100%" })
+            @Html.ValidationMessageFor(m => m.CheckinDate, "Checkin Date is required",
+                                    new { @class = "text-danger" })
+        </div>
+        <div class="booking-date-fields-container col-md-3  col-md-offset-2">
+            <!-- Do NOT change the "booking-date-fields-container" Class -->
+            @Html.Label("CheckoutDate", "Check Out: ")
+            @Html.TextBoxFor(m => m.CheckoutDate, "",
+                                     new { @class = "form-control datepicker", @style = "width: 100%" })
+            @Html.ValidationMessageFor(m => m.CheckoutDate, "Checkout Date is required",
+                                    new { @class = "text-danger" })
+        </div>
+        <div class="booking-date-fields-container col-md-2 col-md-offset-2" style="margin-top: 10px">
+            <!-- Do NOT change the "booking-date-fields-container" Class -->
+            @Html.Label("NumberOfAdults", "Adults: ")
+            @Html.TextBoxFor(m => m.NumberOfAdults, "", new
+            {
+                @class = "form-control",
+                @type = "number",
+                @style = "width: 100%",
+                @min = 1,
+                @max = 4
+            })
+            @Html.ValidationMessageFor(m => m.NumberOfAdults,
+                                "Enter number of adults", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="booking-date-fields-container col-md-2  col-md-offset-1" style="margin-top: 10px">
+            <!-- Do NOT change the "booking-date-fields-container" Class -->
+            @Html.Label("NumberOfChildren", "Children: ")
+            @Html.TextBoxFor(m => m.NumberOfChildren, "", new
+            {
+                @class = "form-control",
+                @type = "number",
+                @style = "width: 100%",
+                @min = 0,
+                @max = 4
+            })
+            @Html.ValidationMessageFor(m => m.NumberOfChildren,
+                   "Enter number of children", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="booking-date-fields-container col-md-2  col-md-offset-1" style="margin-top: 10px">
+            <!-- Do NOT change the "booking-date-fields-container" Class -->
+            @Html.Label("NumberOfRooms", "Number of rooms: ")
+
+            @Html.TextBoxFor(m => m.NumberOfRooms, "", new
+            {
+                @class = "form-control",
+                @type = "number",
+                @style = "width: 100%",
+                @min = 1,
+                @max = 3
+            })
+            @Html.ValidationMessageFor(m => m.NumberOfRooms,
+                   "Enter number of rooms. Max 3 can be entered", new { @class = "text-danger" })
+
+        </div>
+        <div class="col-md-12" style="margin-top: 30px; text-align: center">
+            @*<button type="submit" id="next1" class="btn btn-default">Next</button>*@
+            <input type="submit" id="next1" style="letter-spacing: 2px"
+                   class="btn btn-default" value="Save and Continue >>">
+        </div>
+    </div>
+
+}
+
+

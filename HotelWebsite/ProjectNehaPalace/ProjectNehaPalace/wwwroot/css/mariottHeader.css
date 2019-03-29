@@ -1,0 +1,17 @@
+﻿#nehaPalaceHeader {
+    /*margin-top: 10px;*/
+    margin-bottom: 0px;
+    /*background-color: #222;*/
+}
+
+#nehaPalaceHeader h2{
+    font-size: 40px;
+}
+
+    #nehaPalaceHeader h4 {
+        font-size: 30px;
+    }
+
+    #nehaPalaceHeader .subtitle {
+        color: white;
+    }

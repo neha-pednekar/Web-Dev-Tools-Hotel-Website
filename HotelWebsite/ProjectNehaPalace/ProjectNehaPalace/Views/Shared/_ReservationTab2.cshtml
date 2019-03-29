@@ -1,0 +1,215 @@
+﻿@model ProjectNehaPalace.Models.HotelViewModels.ReservationModel;
+
+@using (Html.BeginForm("SaveRoomDetails", "Hotel", FormMethod.Post,
+new { enctype = "multipart/form-data", id = "saveRoomForm" }))
+{
+    @Html.AntiForgeryToken()
+    @if (Model != null)
+    {
+        @Html.HiddenFor(m => m.CheckinDate, Model.CheckinDate)
+        @Html.HiddenFor(m => m.CheckoutDate, Model.CheckoutDate)
+        @Html.HiddenFor(m => m.NumberOfAdults, Model.NumberOfAdults)
+        @Html.HiddenFor(m => m.NumberOfChildren, Model.NumberOfChildren)
+        @Html.HiddenFor(m => m.NumberOfRooms, Model.NumberOfRooms)
+        @*@Html.Hidden("IsSingleRoom")
+        @Html.Hidden("IsDoubleRoom")
+        @Html.Hidden("IsDeluxeOneBedroom")
+        @Html.Hidden("IsDeluxeTwoBedroom")
+        @Html.Hidden("IsRoyalSuit")
+        @Html.Hidden("IsKingSuit")*@
+        @*@if (Model.RoomDetails != null)
+            {
+                @Html.HiddenFor(m => Model.RoomDetails)
+                for (var i = 0; i < Model.RoomDetails.Count; i++)
+                {
+                    @Html.HiddenFor(x => x.RoomDetails[i].RoomType)
+                    @Html.HiddenFor(x => x.RoomDetails[i].RoomTariff)
+                }
+            }*@
+    }
+
+    <div class="heading-box">
+        @if (Model != null)
+        {
+            @if (Model.NumberOfRooms == 1)
+            {<h2>Go ahead and select any <span>@Model.NumberOfRooms</span> room</h2>}
+        else
+        { <h2>Go ahead and select any <span>@Model.NumberOfRooms</span> rooms</h2>}
+        }
+    </div>
+    <div class="main-booking-description">
+        We are glad that you chose Marriott
+    </div>
+    <div class="main-booking-description" style="color: red" id="displayErrorDiv">
+    </div>
+
+    <!-- Rooms Container -->
+    <div class="room-container room-grid clearfix">
+
+        <!-- Room Boxes -->
+        <div class="room-box col-xs-6">
+            <div class="img-container">
+                <div class="check-box-container">
+                    @*<input type="checkbox" value="1" id="room-1">*@
+                    @Html.CheckBox("IsSingleRoom")
+                    <label for="room-1">
+                        <span></span>
+                        Select This <b>Room</b>
+                    </label>
+                </div>
+                <img src="~/images/RoomImages/single_room.jpg" alt="1">
+                <a href="#" class="btn btn-default">More Details</a>
+            </div>
+            <div class="details">
+                <div class="title"><a href="#">Single <span>Room</span></a></div>
+                <div class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quisquam, pariatur, officiis. Cupiditate autem, accusantium,
+                    saepe quasi eaque labore deleniti alias?
+                </div>
+                <div class="price">
+                    <span>$240</span>
+                    - Per Night
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Boxes -->
+        <div class="room-box col-xs-6">
+            <div class="img-container">
+                <div class="check-box-container">
+                    @*<input type="checkbox" value="2" id="room-2">*@
+                    @Html.CheckBox("IsDoubleRoom")
+                    <label for="room-2">
+                        <span></span>
+                        Select This <b>Room</b>
+                    </label>
+                </div>
+                <img src="~/images/RoomImages/double_room.jpg" alt="2">
+                <a href="#" class="btn btn-default">More Details</a>
+            </div>
+            <div class="details">
+                <div class="title"><a href="#">Double <span>Room</span></a></div>
+                <div class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
+                </div>
+                <div class="price">
+                    <span>$350</span>
+                    - Per Night
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Boxes -->
+        <div class="room-box col-xs-6">
+            <div class="img-container">
+                <div class="check-box-container">
+                    @*<input type="checkbox" value="3" id="room-3">*@
+                    @Html.CheckBox("IsDeluxeOneBedroom")
+                    <label for="room-3">
+                        <span></span>
+                        Select This <b>Room</b>
+                    </label>
+                </div>
+                <img src="~/images/RoomImages/one_bedroom_deluxe_suite.jpg" alt="">
+                <a href="#" class="btn btn-default">More Details</a>
+            </div>
+            <div class="details">
+                <div class="title"><a href="#">Deluxe <span>One-bedroom</span> Suite</a></div>
+                <div class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
+                </div>
+                <div class="price">
+                    <span>$440</span>
+                    - Per Night
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Boxes -->
+        <div class="room-box col-xs-6">
+            <div class="img-container">
+                <div class="check-box-container">
+                    @*<input type="checkbox" value="4" id="room-4">*@
+                    @Html.CheckBox("IsDeluxeTwoBedroom")
+                    <label for="room-4">
+                        <span></span>
+                        Select This <b>Room</b>
+                    </label>
+                </div>
+                <img src="~/images/RoomImages/two_bedroom_deluxe_suite.jpg" alt="">
+                <a href="#" class="btn btn-default">More Details</a>
+            </div>
+            <div class="details">
+                <div class="title"><a href="#">Deluxe <span>Two-bedroom</span> Suite</a></div>
+                <div class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
+                </div>
+                <div class="price">
+                    <span>$480</span>
+                    - Per Night
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Boxes -->
+        <div class="room-box col-xs-6">
+            <div class="img-container">
+                <div class="check-box-container">
+                    @*<input type="checkbox" value="5" id="room-5">*@
+                    @Html.CheckBox("IsRoyalSuit")
+                    <label for="room-5">
+                        <span></span>
+                        Select This <b>Room</b>
+                    </label>
+                </div>
+                <img src="~/images/RoomImages/royal_suit.jpg" alt="">
+                <a href="#" class="btn btn-default">More Details</a>
+            </div>
+            <div class="details">
+                <div class="title"><a href="#"><span>Royal</span> Suit</a></div>
+                <div class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
+                </div>
+                <div class="price">
+                    <span>$530</span>
+                    - Per Night
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Boxes -->
+        <div class="room-box col-xs-6">
+            <div class="img-container">
+                <div class="check-box-container">
+                    @*<input type="checkbox" value="6" id="room-6">*@
+                    @Html.CheckBox("IsKingSuit")
+                    <label for="room-6">
+                        <span></span>
+                        Select This <b>Room</b>
+                    </label>
+                </div>
+                <img src="~/images/RoomImages/king_suit.jpg" alt="">
+                <a href="#" class="btn btn-default">More Details</a>
+            </div>
+            <div class="details">
+                <div class="title"><a href="#"><span>King</span> Suit</a></div>
+                <div class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
+                </div>
+                <div class="price">
+                    <span>$620</span>
+                    - Per Night
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="margin-top: 30px; text-align: center">
+            @*<button type="submit" id="next1" class="btn btn-default">Next</button>*@
+            <input type="submit" id="next2" style="letter-spacing: 2px"
+                   class="btn btn-default" value="Save and Continue >>">
+        </div>
+
+    </div>
+}
+<!-- End of Rooms Container -->

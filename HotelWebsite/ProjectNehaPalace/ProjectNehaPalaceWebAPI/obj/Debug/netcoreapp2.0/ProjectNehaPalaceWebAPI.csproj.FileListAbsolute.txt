@@ -1,0 +1,11 @@
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.deps.json
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.runtimeconfig.json
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.runtimeconfig.dev.json
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.dll
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.pdb
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.csprojAssemblyReference.cache
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.AssemblyInfoInputs.cache
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.AssemblyInfo.cs
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.dll
+C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectMarriott\ProjectMariottWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.pdb

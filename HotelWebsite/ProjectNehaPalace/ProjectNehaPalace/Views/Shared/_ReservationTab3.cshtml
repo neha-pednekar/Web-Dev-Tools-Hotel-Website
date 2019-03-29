@@ -1,0 +1,227 @@
+﻿@model ProjectNehaPalace.Models.HotelViewModels.ReservationModel
+
+@*@using (Html.BeginForm("SubmitCustomerData", "Hotel", FormMethod.Post,
+new { id = "submitCustomerData" }))
+{*@
+
+@if (Model != null)
+{
+<form class="form" id="submitCustomerData" method="post"
+      action="@Url.Action("SubmitCustomerData", "Hotel")">
+
+    @Html.AntiForgeryToken()
+    @if (Model != null)
+    {
+        @Html.HiddenFor(m => m.CheckinDate, Model.CheckinDate)
+        @Html.HiddenFor(m => m.CheckoutDate, Model.CheckoutDate)
+        @Html.HiddenFor(m => m.NumberOfAdults, Model.NumberOfAdults)
+        @Html.HiddenFor(m => m.NumberOfChildren, Model.NumberOfChildren)
+        @Html.HiddenFor(m => m.TotalCost, Model.TotalCost)
+        @Html.HiddenFor(m => m.NumberOfDays, Model.NumberOfDays)
+        @Html.Hidden("IsSingleRoom")
+        @Html.Hidden("IsDoubleRoom")
+        @Html.Hidden("IsDeluxeOneBedroom")
+        @Html.Hidden("IsDeluxeTwoBedroom")
+        @Html.Hidden("IsRoyalSuit")
+        @Html.Hidden("IsKingSuit")
+
+        @*@if (Model.RoomDetails != null)
+            {
+                @Html.HiddenFor(m => Model.RoomDetails)
+                for (var i = 0; i < Model.RoomDetails.Count; i++)
+                {
+                    @Html.HiddenFor(x => x.RoomDetails[i].RoomType)
+                    @Html.HiddenFor(x => x.RoomDetails[i].RoomTariff)
+                }
+            }*@
+
+    }
+
+    <div class="reservation-summary col-md-6 col-md-push-3">
+        <h4>Reservation <b>Summary</b></h4>
+        <div class="info-boxes">
+            @if (Model != null && Model.RoomDetails != null)
+            {
+                <div class="title"><span>Reservation <b>Info</b></span></div>
+                <ul style="list-style: none">
+                    <li>
+                        <div class="info">Check in :</div>
+                        <div class="value">@Model.CheckinDate.ToShortDateString()</div>
+                    </li>
+                    <li>
+                        <div class="info">Check out :</div>
+                        <div class="value">@Model.CheckoutDate.ToShortDateString()</div>
+                    </li>
+                    <li>
+                        <div class="info">Total Number of Stay days :</div>
+                        <div class="value">@Model.NumberOfDays</div>
+                    </li>
+                    <li>
+                        <div class="info">Adult :</div>
+                        <div class="value">@Model.NumberOfAdults</div>
+                    </li>
+                    <li>
+                        <div class="info">Child :</div>
+                        <div class="value">@Model.NumberOfChildren</div>
+                    </li>
+                </ul>
+                <div class="title"><span>Room <b>Info</b></span></div>
+                @foreach (var room in Model.RoomDetails)
+                {
+                    <ul style="list-style:none">
+                        <li>
+                            <div class="info">
+                                @Html.DisplayName(room.RoomType)
+                            </div>
+                            <div class="value">$@room.RoomTariff</div>
+                        </li>
+                    </ul>
+                }
+                <div class="total-cost">
+                    <div class="info">Total Cost :</div>
+                    <div class="value">$@Model.TotalCost</div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+    <div class="reservation-info col-md-8 col-md-push-3">
+        <h4>Reservation <b>Info</b></h4>
+
+        <div class="col-md-4">
+            <div class="field-container">
+                @Html.Label("FirstName", "First Name: ")
+                @Html.TextBoxFor(m => m.CustomerDetails.FirstName,
+                                                                                                                                                        new
+                                                                                                                                                        {
+                                                                                                                                                            @class = "form-control",
+                                                                                                                                                            @placeholder = "First Name",
+                                                                                                                                                            @style = "width: 100%"
+                                                                                                                                                        })<!-- First Name Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.FirstName,
+                                                                                                                                                            "First Name is required",
+                                                                                                                                                            new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="field-container">
+                @Html.Label("LastName", "Last Name: ")
+                @Html.TextBoxFor(m => m.CustomerDetails.LastName,
+                                                                                                                                                                                   new
+                                                                                                                                                                                   {
+                                                                                                                                                                                       @class = "form-control",
+                                                                                                                                                                                       @placeholder = "Last Name",
+                                                                                                                                                                                       @style = "width: 100%"
+                                                                                                                                                                                   })<!-- Last Name Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.LastName,
+                                                                                                                                                            "Last Name is required",
+                                                                                                                                                            new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="field-container">
+                @Html.Label("EmailAddress", "Email Address: ")
+                @Html.TextBoxFor(m => m.CustomerDetails.EmailAddress,
+                                                                                                                                                     new
+                                                                                                                                                     {
+                                                                                                                                                         @class = "form-control",
+                                                                                                                                                         @placeholder = "ex. abc@xyz.com",
+                                                                                                                                                         @style = "width: 100%"
+                                                                                                                                                     })<!-- Email Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.EmailAddress,
+                                                                                                                         "Last Name is required",
+                                                                                                                         new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="field-container">
+                @Html.Label("PhoneNumber", "Phone Number: ")
+                @Html.TextBoxFor(m => m.CustomerDetails.PhoneNumber,
+                                                                                                                                                  new
+                                                                                                                                                  {
+                                                                                                                                                      @class = "form-control",
+                                                                                                                                                      @placeholder = "XXXXXXXXXX",
+                                                                                                                                                      @style = "width: 100%"
+                                                                                                                                                  })<!-- Phone Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.PhoneNumber,
+                                                                                                                 "Last Name is required",
+                                                                                                                 new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            @Html.Label("Address", "Address: ")
+            <div class="field-container">
+                @Html.TextBoxFor(m => m.CustomerDetails.Address.AddressLine1,
+                                                                                                                                                      new
+                                                                                                                                                      {
+                                                                                                                                                          @class = "form-control",
+                                                                                                                                                          @placeholder = "Address Line 1",
+                                                                                                                                                          @style = "width: 100%"
+                                                                                                                                                      })<!-- Address Line1 Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.Address.AddressLine1,
+                                                                                                                                                     "Address Line 1 is required",
+                                                                                                                                                     new { @class = "text-danger" })
+            </div>
+            <div class="field-container">
+                @Html.TextBoxFor(m => m.CustomerDetails.Address.AddressLine2,
+                                                                                                                                                             new
+                                                                                                                                                             {
+                                                                                                                                                                 @class = "form-control",
+                                                                                                                                                                 @placeholder = "Address Line 2(optional)",
+                                                                                                                                                                 @style = "width: 100%"
+                                                                                                                                                             })<!-- Address Line2 Field -->
+            </div>
+            <div class="field-container">
+                @Html.TextBoxFor(m => m.CustomerDetails.Address.State,
+                                                                                                                                                      new
+                                                                                                                                                      {
+                                                                                                                                                          @class = "form-control",
+                                                                                                                                                          @placeholder = "City",
+                                                                                                                                                          @style = "width: 100%"
+                                                                                                                                                      })<!-- City Field -->
+                <!-- City Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.Address.City,
+                                                                                                                                                     "City is required",
+                                                                                                                                                     new { @class = "text-danger" })
+            </div>
+            <div class="field-container">
+                @Html.TextBoxFor(m => m.CustomerDetails.Address.State,
+                                                                                                                                                      new
+                                                                                                                                                      {
+                                                                                                                                                          @class = "form-control",
+                                                                                                                                                          @placeholder = "State",
+                                                                                                                                                          @style = "width: 100%"
+                                                                                                                                                      })<!-- State Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.Address.State,
+                                                                                                                                                     "State is required",
+                                                                                                                                                     new { @class = "text-danger" })
+            </div>
+            <div class="field-container">
+                @Html.TextBoxFor(m => m.CustomerDetails.Address.ZipCode,
+                                                                                                                                                      new
+                                                                                                                                                      {
+                                                                                                                                                          @class = "form-control",
+                                                                                                                                                          @placeholder = "Zip Code",
+                                                                                                                                                          @style = "width: 100%"
+                                                                                                                                                      })<!-- Zip Code Field -->
+                @Html.ValidationMessageFor(m => m.CustomerDetails.Address.ZipCode,
+                                                                                                                                                     "Zip Code is required",
+                                                                                                                                                     new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-12" style="margin-top: 30px; text-align: center">
+        @*<button type="submit" id="next1" class="btn btn-default">Next</button>*@
+        <input type="submit" id="next3" style="letter-spacing: 2px"
+               class="btn btn-default" value="Submit Form and Make Payment">
+    </div>
+    <!-- End of Guest Info form -->
+    @*  }*@
+</form>
+}

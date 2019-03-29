@@ -1,0 +1,252 @@
+﻿body {
+    /*padding-top: 20px;*/
+    color:white;
+    padding-bottom: 20px;
+    background: black; /* For browsers that do not support gradients */
+    background: linear-gradient(to right, black, grey, black);
+}
+
+.package-details {
+    color: black;
+}
+
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form #checkinDate {
+    float: none;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+#loginurllinks {
+    color: #c5a46d;
+}
+
+#checkoutDate {
+    float: none;
+} 
+
+#customFont {
+    font-weight: bold;
+    color: #c5a46d;
+    display: inline-block;
+    /*border-bottom: 1px solid #C5A46D;
+    padding: 0 20px 20px;
+    margin: 20px 0;*/
+    font-size: 20px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+    align-self: center;
+}
+
+#submitButtonIndex {
+    margin: 10px 500px 30px;
+    width: 200px;
+}
+
+.dropdown-menu.datepicker {
+    background-color: #797979;
+    color: #C9A368;
+}
+
+#datepicker {
+    width: 180px;
+    margin: 0 20px 20px 20px;
+}
+
+    #datepicker > span:hover {
+        cursor: pointer;
+    }
+
+#booking_jumbotron{
+    height: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: black;
+}
+
+/*@media screen and (min-width:768px)*/
+.container #booking_jumbotron, .container-fluid #booking_jumbotron {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+footer{
+    display: block;
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eeeeee;
+}
+
+    blockquote p:last-child,
+    blockquote ul:last-child,
+    blockquote ol:last-child {
+        margin-bottom: 0;
+    }
+
+    blockquote footer,
+    blockquote small,
+    blockquote .small {
+        display: block;
+        font-size: 80%;
+        line-height: 1.42857143;
+        color: #777777;
+    }
+
+        blockquote footer:before,
+        blockquote small:before,
+        blockquote .small:before {
+            content: '\2014 \00A0';
+        }
+
+    .blockquote-reverse,
+    blockquote.pull-right {
+        padding-right: 15px;
+        padding-left: 0;
+        border-right: 5px solid #eeeeee;
+        border-left: 0;
+        text-align: right;
+    }
+
+        .blockquote-reverse footer:before,
+        .blockquote-reverse small:before,
+        .blockquote-reverse .small:before,
+        blockquote.pull-right footer:before,
+        blockquote.pull-right small:before,
+        blockquote.pull-right .small:before {
+            content: '';
+        }
+
+        .blockquote-reverse footer:after,
+        .blockquote-reverse small:after,
+        .blockquote-reverse .small:after,
+        blockquote.pull-right footer:after,
+        blockquote.pull-right small:after,
+        blockquote.pull-right .small:after {
+            content: '\00A0 \2014';
+        }
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: -1;
+    border-bottom-left-radius: -1;
+}
+
+.list-group + .panel-footer {
+    border-top-width: 0;
+}
+
+.panel-group .panel-footer {
+    border-top: 0;
+}
+
+    .panel-group .panel-footer + .panel-collapse .panel-body {
+        border-bottom: 1px solid #ddd;
+    }
+
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #ddd;
+}
+
+.panel-primary > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #337ab7;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+
+    .modal-footer:before, .modal-footer:after {
+        content: " ";
+        display: table;
+    }
+
+    .modal-footer:after {
+        clear: both;
+    }
+
+    .modal-footer .btn + .btn, .modal-footer aside.sidebar .widget.widget_tag_cloud .tagcloud a + .btn, aside.sidebar .widget.widget_tag_cloud .tagcloud .modal-footer a + .btn, .modal-footer aside.sidebar .widget.widget_tag_cloud .tagcloud .btn + a, aside.sidebar .widget.widget_tag_cloud .tagcloud .modal-footer .btn + a, .modal-footer aside.sidebar .widget.widget_tag_cloud .tagcloud a + a, aside.sidebar .widget.widget_tag_cloud .tagcloud .modal-footer a + a {
+        margin-left: 5px;
+        margin-bottom: 0;
+    }
+
+    .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group aside.sidebar .widget.widget_tag_cloud .tagcloud a + .btn, aside.sidebar .widget.widget_tag_cloud .tagcloud .modal-footer .btn-group a + .btn, .modal-footer .btn-group aside.sidebar .widget.widget_tag_cloud .tagcloud .btn + a, aside.sidebar .widget.widget_tag_cloud .tagcloud .modal-footer .btn-group .btn + a, .modal-footer .btn-group aside.sidebar .widget.widget_tag_cloud .tagcloud a + a, aside.sidebar .widget.widget_tag_cloud .tagcloud .modal-footer .btn-group a + a {
+        margin-left: -1px;
+    }
+
+    .modal-footer .btn-block + .btn-block {
+        margin-left: 0;
+    }
+
+
+#navbarTop{
+    min-height: 90px;
+}
+
+.nav navbar-nav{
+    padding-bottom: 0px;
+}
+
+.carousel {
+    width: auto;
+    max-height: 450px;
+    overflow: hidden;
+    align-self: center;
+    border: 1px solid #C5A46D;
+}
+
+.container{
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.item img {
+    width: 100%;
+}
+
+#header_text {
+    padding-left: 90px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
+        Geneva, Verdana, sans-serif;
+    font-size: 30px;
+}
+
+.navbar-brand{
+    padding-top: 0px;
+}
+
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
