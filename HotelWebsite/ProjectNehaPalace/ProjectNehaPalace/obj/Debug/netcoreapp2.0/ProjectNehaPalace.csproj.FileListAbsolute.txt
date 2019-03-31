@@ -22,3 +22,15 @@ C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectNeh
 C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.AssemblyInfo.cs
 C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.dll
 C:\Users\Neha Pednekar\source\repos\Web-Tools-2018 (1)\Web-Tools-2018\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.pdb
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.deps.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.runtimeconfig.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.runtimeconfig.dev.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.dll
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.pdb
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.csprojAssemblyReference.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.csproj.CoreCompileInputs.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.AssemblyInfoInputs.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.AssemblyInfo.cs
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.dll
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.pdb

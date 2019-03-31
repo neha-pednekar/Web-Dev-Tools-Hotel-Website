@@ -14208,11 +14208,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Neha Pednekar\\source\\repos\\Web-Tools-2018 (1)\\Web-Tools-2018\\ProjectNehaPalace\\ProjectNehaPalace\\ProjectNehaPalace.csproj",
+      "projectUniqueName": "C:\\Users\\Neha Pednekar\\source\\repos\\HotelWebsite\\Web-Dev-Tools-Hotel-Website\\HotelWebsite\\ProjectNehaPalace\\ProjectNehaPalace\\ProjectNehaPalace.csproj",
       "projectName": "ProjectNehaPalace",
-      "projectPath": "C:\\Users\\Neha Pednekar\\source\\repos\\Web-Tools-2018 (1)\\Web-Tools-2018\\ProjectNehaPalace\\ProjectNehaPalace\\ProjectNehaPalace.csproj",
+      "projectPath": "C:\\Users\\Neha Pednekar\\source\\repos\\HotelWebsite\\Web-Dev-Tools-Hotel-Website\\HotelWebsite\\ProjectNehaPalace\\ProjectNehaPalace\\ProjectNehaPalace.csproj",
       "packagesPath": "C:\\Users\\Neha Pednekar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Neha Pednekar\\source\\repos\\Web-Tools-2018 (1)\\Web-Tools-2018\\ProjectNehaPalace\\ProjectNehaPalace\\obj\\",
+      "outputPath": "C:\\Users\\Neha Pednekar\\source\\repos\\HotelWebsite\\Web-Dev-Tools-Hotel-Website\\HotelWebsite\\ProjectNehaPalace\\ProjectNehaPalace\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

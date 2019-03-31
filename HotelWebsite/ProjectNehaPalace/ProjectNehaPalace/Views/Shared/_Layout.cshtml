@@ -15,7 +15,7 @@
         <link href="~/css/HeadingBox.css" rel="stylesheet" type="text/css" />
         <link href="~/css/ButtonStyling.css" rel="stylesheet" type="text/css" />
         <link href="~/css/SpecialPackages.css" rel="stylesheet" type="text/css" />
-        <link href="~/css/nehaPalaceHeader.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/NehaPalaceCustom.css" rel="stylesheet" type="text/css" />
         <link href="~/css/InternalPageHeaderStyles.css" rel="stylesheet" type="text/css" />
         <link href="~/css/ClassListInline.css" rel="stylesheet" type="text/css" />
         <link href="~/css/FooterStyling.css" rel="stylesheet" type="text/css" />
@@ -36,15 +36,13 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbarTop">
+    <div class="heading-box h4" id="nehaPalaceHeader">
+        <h4>Welcome to <span>The Neha Palace!</span></h4><!-- Title -->
+    </div>
+
+    <nav class="navbar navbar-inverse" id="navbarTop">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
                     <img src="~/images/npLogo.png" title="Neha Palace Logo" alt="Neha Palace Logo" height="45" width="90" />
                 </a>
@@ -55,10 +53,6 @@
             </div>
         </div>
     </nav>
-
-    <div class="heading-box h4" id="nehaPalaceHeader">
-        <h4>Welcome to <span>The Neha Palace!</span></h4><!-- Title -->
-    </div>
 
     <nav class="navbar  navbar-default" role="navigation">
         <div class="container-fluid">
