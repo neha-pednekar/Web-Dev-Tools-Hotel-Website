@@ -1,13 +1,14 @@
 ﻿
 
 .btn-default {
-    color: #FFFFFF;
+    color: indianred;
     background-color: #C5A46D;
     border-color: #C5A46D;
+    font-weight: bold
 }
 
     .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
-        color: #FFFFFF;
+        color: white;
         background-color: #b78d49;
         border-color: #af8846;
     }
@@ -324,15 +325,15 @@ tbody.collapse.in {
 
         .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
             text-decoration: none;
-            color: #262626;
-            background-color: #f5f5f5;
+            color: indianred;
+            background-color: transparent;
         }
 
     .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
         color: #fff;
         text-decoration: none;
         outline: 0;
-        background-color: #337ab7;
+        background-color: transparent;
     }
 
     .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
