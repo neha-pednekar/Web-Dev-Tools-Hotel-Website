@@ -9,7 +9,6 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 {
     public class CustomerModel
     {
-
         public int CustomerID { get; set; }
 
         [DisplayName("First Name: ")]
@@ -27,5 +26,7 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 
         [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
+
+        public string SSN{ get; set; }
     }
 }
