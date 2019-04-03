@@ -53,6 +53,7 @@ namespace ProjectNehaPalaceWebAPI
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            //app.UseSwagger();
         }
     }
 }

@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace ProjectNehaPalace.Models.HotelViewModels
 {
-    public class AddressModel
+    public class Address
     {
         public string AddressId { get; set; }
+
+        public string AddressType { get; set; }
 
         public string AddressLine1 { get; set; }
 

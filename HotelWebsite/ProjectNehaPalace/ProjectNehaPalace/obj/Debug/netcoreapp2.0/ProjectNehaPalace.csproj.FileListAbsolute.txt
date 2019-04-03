@@ -27,10 +27,10 @@ C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\Hot
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.runtimeconfig.dev.json
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.dll
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.0\ProjectNehaPalace.pdb
-C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.csprojAssemblyReference.cache
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.csproj.CoreCompileInputs.cache
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.AssemblyInfoInputs.cache
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.AssemblyInfo.cs
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.dll
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.pdb
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.0\ProjectNehaPalace.csprojAssemblyReference.cache

@@ -18,7 +18,7 @@ namespace ProjectNehaPalace.Controllers
         RoomClient roomClient = new RoomClient("http://localhost:50254");
         public async Task<ActionResult> Index()
         {
-            List<RoomModel> RoomsList = new List<RoomModel>();
+            List<Room> RoomsList = new List<Room>();
 
             using (var client = new HttpClient())
             {
@@ -40,7 +40,7 @@ namespace ProjectNehaPalace.Controllers
                     var RoomsResponse = Res.Content.ReadAsStringAsync().Result;
 
                     //Deserializing the response recieved from web api and storing into the Employee list  
-                    RoomsList = JsonConvert.DeserializeObject<List<RoomModel>>(RoomsResponse);
+                    RoomsList = JsonConvert.DeserializeObject<List<Room>>(RoomsResponse);
 
                 }
                 //returning the employee list to view  

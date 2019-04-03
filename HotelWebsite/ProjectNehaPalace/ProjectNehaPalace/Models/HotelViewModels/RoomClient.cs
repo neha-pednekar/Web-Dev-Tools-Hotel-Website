@@ -11,7 +11,7 @@ namespace ProjectNehaPalace.Models
 {
     public class RoomClient
     {
-        public System.Net.HttpStatusCode AddRoom(RoomModel room)
+        public System.Net.HttpStatusCode AddRoom(Room room)
         {
             using (var client = CreateActionClient("Post01"))
             {
@@ -70,7 +70,7 @@ namespace ProjectNehaPalace.Models
         }
 
 
-        public async Task<IEnumerable<RoomModel>> GetRoomsAsync()
+        public async Task<IEnumerable<Room>> GetRoomsAsync()
         {
             using (var client = CreateClient())
             {
@@ -81,9 +81,9 @@ namespace ProjectNehaPalace.Models
                 if (response.IsSuccessStatusCode)
                 {
                     var avail = await response.Content.ReadAsStringAsync()
-                        .ContinueWith<IEnumerable<RoomModel>>(postTask =>
+                        .ContinueWith<IEnumerable<Room>>(postTask =>
                         {
-                            return JsonConvert.DeserializeObject<IEnumerable<RoomModel>>(postTask.Result);
+                            return JsonConvert.DeserializeObject<IEnumerable<Room>>(postTask.Result);
                         });
                     return avail;
                 }
@@ -95,7 +95,7 @@ namespace ProjectNehaPalace.Models
             //return result;
         }
 
-        public async Task<IEnumerable<RoomModel>> GetRoomsAsync(RoomType roomType)
+        public async Task<IEnumerable<Room>> GetRoomsAsync(RoomType roomType)
         {
             using (var client = CreateClient())
             {
@@ -105,9 +105,9 @@ namespace ProjectNehaPalace.Models
                 if (response.IsSuccessStatusCode)
                 {
                     var avail = await response.Content.ReadAsStringAsync()
-                        .ContinueWith<IEnumerable<RoomModel>>(postTask =>
+                        .ContinueWith<IEnumerable<Room>>(postTask =>
                         {
-                            return JsonConvert.DeserializeObject<IEnumerable<RoomModel>>(postTask.Result);
+                            return JsonConvert.DeserializeObject<IEnumerable<Room>>(postTask.Result);
                         });
                     return avail;
                 }
@@ -121,7 +121,7 @@ namespace ProjectNehaPalace.Models
 
         
 
-        public System.Net.HttpStatusCode UpdateRoom(RoomModel room)
+        public System.Net.HttpStatusCode UpdateRoom(Room room)
         {
             using (var client = CreateActionClient("Put01"))
             {
@@ -134,7 +134,7 @@ namespace ProjectNehaPalace.Models
             }
         }
 
-        public async Task<System.Net.HttpStatusCode> UpdateRoomAsync(RoomModel room)
+        public async Task<System.Net.HttpStatusCode> UpdateRoomAsync(Room room)
         {
             using (var client = CreateActionClient("Post01"))
             {

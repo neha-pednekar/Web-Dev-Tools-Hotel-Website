@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjectNehaPalace.Models.HotelViewModels
 {
-    public class RoomModel
+    public class Room
     {
-        public RoomModel(string roomType, double roomTariff, bool availability, 
+        public Room(string roomType, double roomTariff, bool availability, 
             int roomsAvailable)
         {
             RoomType = roomType;
@@ -32,7 +32,7 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 
     }
 
-    [Flags]
+    //[Flags]
     public enum RoomType
     {
         [Display(Name = "Single Room")]

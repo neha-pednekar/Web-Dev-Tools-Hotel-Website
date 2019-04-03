@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace ProjectNehaPalace.Models.HotelViewModels
 {
-    public class ReservationStats
+    public class BookingStats
     {
-        ReservationManager reservationManager = new ReservationManager();
+        BookingManager reservationManager = new BookingManager();
 
         public async Task<int> GetBookingCount()
         {

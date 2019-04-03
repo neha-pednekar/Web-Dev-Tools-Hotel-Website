@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectNehaPalace.Models.HotelViewModels
 {
-    public class CustomerModel
+    public class Customer
     {
         public int CustomerID { get; set; }
 
@@ -17,7 +17,7 @@ namespace ProjectNehaPalace.Models.HotelViewModels
         [DisplayName("Last Name: ")]
         public string LastName { get; set; }
 
-        public AddressModel Address { get; set; }
+        public Address Address { get; set; }
 
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }

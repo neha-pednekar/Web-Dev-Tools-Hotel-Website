@@ -5,28 +5,28 @@ using System.Threading.Tasks;
 
 namespace ProjectNehaPalace.Models.HotelViewModels
 {
-    public class ReservationManager
+    public class BookingManager
     {
-        readonly List<ReservationModel> _reservations = new List<ReservationModel>()
+        readonly List<Booking> _reservations = new List<Booking>()
         {
-            new ReservationModel{ CheckinDate = DateTime.Now.AddDays(10),
+            new Booking{ CheckinDate = DateTime.Now.AddDays(10),
                                   CheckoutDate =  DateTime.Now.AddDays(11),
                                   NumberOfAdults = 1,
                                   NumberOfChildren = 0,
                                   IsDoubleRoom = true,
-                                  RoomDetails = new List<RoomModel>()
+                                  RoomDetails = new List<Room>()
                                   {
-                                      new RoomModel
+                                      new Room
                                       (RoomType.DoubleRoom.ToString(), (double)RoomTariff.DoubleRoom, true, 
                                           (int)RoomsAvailable.DoubleRoom)  
                                   },
-                                  CustomerDetails = new CustomerModel
+                                  CustomerDetails = new Customer
                                   {
                                       FirstName = "Neha",
                                       LastName = "Pednekar",
                                       EmailAddress = "npednekar9@gmail.com",
                                       PhoneNumber = "8888888888",
-                                      Address = new AddressModel()
+                                      Address = new Address()
                                       {
                                           AddressLine1 = "abcd",
                                           AddressLine2 = "efgh",
@@ -39,26 +39,26 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 
                                  },
 
-            new ReservationModel{ CheckinDate = DateTime.Now.AddDays(20),
+            new Booking{ CheckinDate = DateTime.Now.AddDays(20),
                                   CheckoutDate =  DateTime.Now.AddDays(25),
                                   NumberOfAdults = 2,
                                   NumberOfChildren = 0,
                                   IsRoyalSuit = true,
-                                  RoomDetails = new List<RoomModel>()
+                                  RoomDetails = new List<Room>()
                                   {
-                                      new RoomModel
+                                      new Room
                                       (   RoomType.SingleRoom.ToString(), 
                                           (double)RoomTariff.SingleRoom, 
                                           true, 
                                           (int)RoomsAvailable.SingleRoom)
                                   },
-                                  CustomerDetails = new CustomerModel
+                                  CustomerDetails = new Customer
                                   {
                                       FirstName = "Sneha",
                                       LastName = "Kawitkar",
                                       EmailAddress = "sk@gmail.com",
                                       PhoneNumber = "7878787878",
-                                      Address = new AddressModel()
+                                      Address = new Address()
                                       {
                                           AddressLine1 = "abcd",
                                           AddressLine2 = "efgh",
@@ -74,7 +74,7 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 
 
         //Get all  the reservation bookings
-        public IEnumerable<ReservationModel> GetAllReservationBookings
+        public IEnumerable<Booking> GetAllReservationBookings
         {
             get
             {
@@ -84,7 +84,7 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 
 
         //Get the reservations by checkin dates
-        public List<ReservationModel> GetReservationsByCheckinDate(DateTime _checkinDate)
+        public List<Booking> GetReservationsByCheckinDate(DateTime _checkinDate)
         {
             return _reservations.Where(x => x.CheckinDate == _checkinDate).ToList();
         }

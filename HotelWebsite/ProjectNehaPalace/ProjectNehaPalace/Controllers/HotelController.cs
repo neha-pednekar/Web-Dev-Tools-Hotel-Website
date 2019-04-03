@@ -34,62 +34,62 @@ namespace ProjectNehaPalace.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Reservation(ReservationModel reservationModel)
+        public IActionResult Reservation(Booking reservationModel)
         {
             return View("Reservation", reservationModel);
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult SaveBookingDates(ReservationModel reservationModel)
+        public IActionResult SaveBookingDates(Booking reservationModel)
         {
             return View("Reservation", reservationModel);
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult SaveRoomDetails(ReservationModel reservationModel)
+        public IActionResult SaveRoomDetails(Booking reservationModel)
         {
             if (ModelState.IsValid)
             {
-                reservationModel.RoomDetails = new List<RoomModel>();
-                reservationModel.CustomerDetails = new CustomerModel();
-                reservationModel.CustomerDetails.Address = new AddressModel();
+                reservationModel.RoomDetails = new List<Room>();
+                reservationModel.CustomerDetails = new Customer();
+                reservationModel.CustomerDetails.Address = new Address();
                 if (reservationModel.IsSingleRoom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.SingleRoom.ToString(), (double)RoomTariff.SingleRoom,
+                    var roomModel = new Room(RoomType.SingleRoom.ToString(), (double)RoomTariff.SingleRoom,
                         true, (int)RoomsAvailable.SingleRoom);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsDoubleRoom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.DoubleRoom.ToString(), (double)RoomTariff.DoubleRoom,
+                    var roomModel = new Room(RoomType.DoubleRoom.ToString(), (double)RoomTariff.DoubleRoom,
                         true, (int)RoomsAvailable.DoubleRoom);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsDeluxeOneBedroom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.DeluxeOneBedroomSuite.ToString(),
+                    var roomModel = new Room(RoomType.DeluxeOneBedroomSuite.ToString(),
                         (double)RoomTariff.DeluxeOneBedroomSuite,
                         true, (int)RoomsAvailable.DeluxeOneBedroomSuite);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsDeluxeTwoBedroom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.DeluxeTwoBedroomSuite.ToString(),
+                    var roomModel = new Room(RoomType.DeluxeTwoBedroomSuite.ToString(),
                         (double)RoomTariff.DeluxeTwoBedroomSuite,
                         true, (int)RoomsAvailable.DeluxeTwoBedroomSuite);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsRoyalSuit == true)
                 {
-                    var roomModel = new RoomModel(RoomType.RoyalSuit.ToString(), (double)RoomTariff.RoyalSuit,
+                    var roomModel = new Room(RoomType.RoyalSuit.ToString(), (double)RoomTariff.RoyalSuit,
                         true, (int)RoomsAvailable.RoyalSuit);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsKingSuit == true)
                 {
-                    var roomModel = new RoomModel(RoomType.KingSuit.ToString(), (double)RoomTariff.KingSuit,
+                    var roomModel = new Room(RoomType.KingSuit.ToString(), (double)RoomTariff.KingSuit,
                         true, (int)RoomsAvailable.KingSuit);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
@@ -120,46 +120,46 @@ namespace ProjectNehaPalace.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult SubmitCustomerData(ReservationModel reservationModel)
+        public IActionResult SubmitCustomerData(Booking reservationModel)
         {
             if (ModelState.IsValid)
             {
-                reservationModel.RoomDetails = new List<RoomModel>();
+                reservationModel.RoomDetails = new List<Room>();
                 if (reservationModel.IsSingleRoom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.SingleRoom.ToString(), (double)RoomTariff.SingleRoom,
+                    var roomModel = new Room(RoomType.SingleRoom.ToString(), (double)RoomTariff.SingleRoom,
                         true, (int)RoomsAvailable.SingleRoom);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsDoubleRoom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.DoubleRoom.ToString(), (double)RoomTariff.DoubleRoom,
+                    var roomModel = new Room(RoomType.DoubleRoom.ToString(), (double)RoomTariff.DoubleRoom,
                         true, (int)RoomsAvailable.DoubleRoom);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsDeluxeOneBedroom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.DeluxeOneBedroomSuite.ToString(),
+                    var roomModel = new Room(RoomType.DeluxeOneBedroomSuite.ToString(),
                         (double)RoomTariff.DeluxeOneBedroomSuite,
                         true, (int)RoomsAvailable.DeluxeOneBedroomSuite);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsDeluxeTwoBedroom == true)
                 {
-                    var roomModel = new RoomModel(RoomType.DeluxeTwoBedroomSuite.ToString(),
+                    var roomModel = new Room(RoomType.DeluxeTwoBedroomSuite.ToString(),
                         (double)RoomTariff.DeluxeTwoBedroomSuite,
                         true, (int)RoomsAvailable.DeluxeTwoBedroomSuite);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsRoyalSuit == true)
                 {
-                    var roomModel = new RoomModel(RoomType.RoyalSuit.ToString(), (double)RoomTariff.RoyalSuit,
+                    var roomModel = new Room(RoomType.RoyalSuit.ToString(), (double)RoomTariff.RoyalSuit,
                         true, (int)RoomsAvailable.RoyalSuit);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
                 if (reservationModel.IsKingSuit == true)
                 {
-                    var roomModel = new RoomModel(RoomType.KingSuit.ToString(), (double)RoomTariff.KingSuit,
+                    var roomModel = new Room(RoomType.KingSuit.ToString(), (double)RoomTariff.KingSuit,
                         true, (int)RoomsAvailable.KingSuit);
                     reservationModel.RoomDetails.Add(roomModel);
                 }
@@ -264,7 +264,7 @@ namespace ProjectNehaPalace.Controllers
         [HttpGet]
         public IActionResult CustomerHistory()
         {
-            var reservationModel = HttpContext.Session.GetObjectFromJson<ReservationModel>("ReservationModel");
+            var reservationModel = HttpContext.Session.GetObjectFromJson<Booking>("ReservationModel");
 
             return View("CustomerHistory", reservationModel);
         }

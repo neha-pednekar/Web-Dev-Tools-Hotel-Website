@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace ProjectNehaPalace.Models.HotelViewModels
 {
-    public class ReservationModel
+    public class Booking
     {
         [DisplayName("Booking ID")]
         public String BookingID { get; set; }
 
-        public List<RoomModel> RoomDetails { get; set; }
+        public List<Room> RoomDetails { get; set; }
 
-        public CustomerModel CustomerDetails { get; set; }
+        public Customer CustomerDetails { get; set; }
         
         [Required]
         [DisplayName("Checkin Date")]
