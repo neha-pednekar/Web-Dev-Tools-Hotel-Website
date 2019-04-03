@@ -275,5 +275,12 @@ namespace ProjectNehaPalace.Controllers
 
             return View();
         }
+
+        public IActionResult CustomerReviews()
+        {
+            ViewData["Message"] = "Customer Reviews Page";
+
+            return View();
+        }
     }
 }
