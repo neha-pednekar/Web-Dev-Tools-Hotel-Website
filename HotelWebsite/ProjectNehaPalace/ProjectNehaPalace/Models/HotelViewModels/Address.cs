@@ -7,7 +7,7 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 {
     public class Address
     {
-        public string AddressId { get; set; }
+        public string AddressID { get; set; }
 
         public string AddressType { get; set; }
 
