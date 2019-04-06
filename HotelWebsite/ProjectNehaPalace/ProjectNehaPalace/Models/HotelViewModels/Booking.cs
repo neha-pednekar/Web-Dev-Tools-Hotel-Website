@@ -13,10 +13,14 @@ namespace ProjectNehaPalace.Models.HotelViewModels
         [DisplayName("Booking ID")]
         public String BookingID { get; set; }
 
-        public List<Room> RoomDetails { get; set; }
+        public ICollection<Room> Room { get; set; }
 
-        public Customer CustomerDetails { get; set; }
-        
+        public Customer Customer { get; set; }
+
+        public Employee Employee { get; set; }
+
+        public Payment Payment { get; set; }
+
         [Required]
         [DisplayName("Checkin Date")]
         [ValidateDateRange(6)]
@@ -29,8 +33,6 @@ namespace ProjectNehaPalace.Models.HotelViewModels
         [ValidateDateRange(6)]
         public DateTime CheckoutDate { get; set; }
 
-        public String AdditionalFacilities { get; set; }
-
         [Required]
         [DisplayName("Number of Adults")]
         public int NumberOfAdults { get; set; }
@@ -39,17 +41,17 @@ namespace ProjectNehaPalace.Models.HotelViewModels
         [DisplayName("Number of Children")]
         public int NumberOfChildren { get; set; }
 
-        public bool IsSingleRoom { get; set; }
+        //public bool IsSingleRoom { get; set; }
 
-        public bool IsDoubleRoom { get; set; }
+        //public bool IsDoubleRoom { get; set; }
 
-        public bool IsDeluxeOneBedroom { get; set; }
+        //public bool IsDeluxeOneBedroom { get; set; }
 
-        public bool IsDeluxeTwoBedroom { get; set; }
+        //public bool IsDeluxeTwoBedroom { get; set; }
 
-        public bool IsRoyalSuit { get; set; }
+        //public bool IsRoyalSuit { get; set; }
 
-        public bool IsKingSuit { get; set; }
+        //public bool IsKingSuit { get; set; }
 
         [DisplayName("Total Cost")]
         public double TotalCost { get; set; }
@@ -62,5 +64,7 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 
         [DataType(DataType.Date)]
         public DateTime BookingDate { get; set; }
+
+        public DateTime LastModifiedDate { get; set; }
     }
 }
