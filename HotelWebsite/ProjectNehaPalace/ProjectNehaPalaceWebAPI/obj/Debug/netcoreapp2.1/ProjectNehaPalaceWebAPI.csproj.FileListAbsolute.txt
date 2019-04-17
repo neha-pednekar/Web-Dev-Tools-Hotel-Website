@@ -1,0 +1,11 @@
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.deps.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.runtimeconfig.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.runtimeconfig.dev.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.dll
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.csprojAssemblyReference.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.AssemblyInfoInputs.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.AssemblyInfo.cs
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.pdb
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.dll
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.1\ProjectNehaPalaceWebAPI.pdb

@@ -1,0 +1,72 @@
+﻿@model ProjectNehaPalace.Models.HotelViewModels.Booking
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookingID" />
+            <div class="form-group">
+                <label asp-for="CheckinDate" class="control-label"></label>
+                <input asp-for="CheckinDate" class="form-control" />
+                <span asp-validation-for="CheckinDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckoutDate" class="control-label"></label>
+                <input asp-for="CheckoutDate" class="form-control" />
+                <span asp-validation-for="CheckoutDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfAdults" class="control-label"></label>
+                <input asp-for="NumberOfAdults" class="form-control" />
+                <span asp-validation-for="NumberOfAdults" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfChildren" class="control-label"></label>
+                <input asp-for="NumberOfChildren" class="form-control" />
+                <span asp-validation-for="NumberOfChildren" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCost" class="control-label"></label>
+                <input asp-for="TotalCost" class="form-control" />
+                <span asp-validation-for="TotalCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfRooms" class="control-label"></label>
+                <input asp-for="NumberOfRooms" class="form-control" />
+                <span asp-validation-for="NumberOfRooms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfDays" class="control-label"></label>
+                <input asp-for="NumberOfDays" class="form-control" />
+                <span asp-validation-for="NumberOfDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingDate" class="control-label"></label>
+                <input asp-for="BookingDate" class="form-control" />
+                <span asp-validation-for="BookingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastModifiedDate" class="control-label"></label>
+                <input asp-for="LastModifiedDate" class="form-control" />
+                <span asp-validation-for="LastModifiedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
