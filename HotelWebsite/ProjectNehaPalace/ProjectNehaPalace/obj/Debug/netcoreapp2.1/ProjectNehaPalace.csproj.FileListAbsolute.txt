@@ -1,0 +1,11 @@
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.1\ProjectNehaPalace.deps.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.1\ProjectNehaPalace.runtimeconfig.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.1\ProjectNehaPalace.runtimeconfig.dev.json
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.1\ProjectNehaPalace.dll
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\bin\Debug\netcoreapp2.1\ProjectNehaPalace.pdb
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.1\ProjectNehaPalace.csprojAssemblyReference.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.1\ProjectNehaPalace.csproj.CoreCompileInputs.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.1\ProjectNehaPalace.AssemblyInfoInputs.cache
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.1\ProjectNehaPalace.AssemblyInfo.cs
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.1\ProjectNehaPalace.dll
+C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalace\obj\Debug\netcoreapp2.1\ProjectNehaPalace.pdb

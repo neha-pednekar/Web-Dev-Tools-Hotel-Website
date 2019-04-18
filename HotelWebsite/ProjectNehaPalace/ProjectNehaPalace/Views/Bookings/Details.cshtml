@@ -1,0 +1,73 @@
+﻿@model ProjectNehaPalace.Models.HotelViewModels.Booking
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckinDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CheckinDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckoutDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CheckoutDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfAdults)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfAdults)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfChildren)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfChildren)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfRooms)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfRooms)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfDays)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfDays)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModifiedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastModifiedDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BookingID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
