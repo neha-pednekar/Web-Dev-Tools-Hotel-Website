@@ -34,9 +34,9 @@
             </ul>
 
             <div class="title"><span>Room <b>Info</b></span></div>
-            @if (Model.RoomDetails != null)
+            @if (Model.Room != null)
             {
-                @foreach (var room in Model.RoomDetails)
+                @foreach (var room in Model.Room)
                 {
                     <ul style="list-style: none">
                         <li>
@@ -64,7 +64,7 @@
     <h4>Customer <b>Info</b></h4>
     <div class="info-boxes">
         <div class="title"><span>Customer <b>Info</b></span></div>
-        @if (Model != null && Model.CustomerDetails != null)
+        @if (Model != null && Model.Customer != null)
     {
         <ul style="list-style:none">
             <li>
@@ -77,30 +77,30 @@
             </li>
             <li>
                 <div class="info">First Name :</div>
-                <div class="value">@Model.CustomerDetails.FirstName</div>
+                <div class="value">@Model.Customer.FirstName</div>
             </li>
             <li>
                 <div class="info">Last Name :</div>
-                <div class="value">@Model.CustomerDetails.LastName</div>
+                <div class="value">@Model.Customer.LastName</div>
             </li>
             <li>
                 <div class="info">Email :</div>
-                <div class="value">@Model.CustomerDetails.EmailAddress</div>
+                <div class="value">@Model.Customer.EmailAddress</div>
             </li>
             <li>
                 <div class="info">Phone :</div>
-                <div class="value">@Model.CustomerDetails.PhoneNumber</div>
+                <div class="value">@Model.Customer.PhoneNumber</div>
             </li>
-            @if (Model.CustomerDetails.Address != null)
+            @if (Model.Customer.Person.Address != null)
     {
         <li>
             <div class="info">Mailing Address :</div>
             <div class="value">
-                @(Model.CustomerDetails.Address.AddressLine1
-+ " " + Model.CustomerDetails.Address.AddressLine2) <br />
-                @Model.CustomerDetails.Address.City <br />
-                @Model.CustomerDetails.Address.State <br />
-                @Model.CustomerDetails.Address.ZipCode
+                @(Model.Customer.Person.Address.AddressLine1
++ " " + Model.Customer.Person.Address.AddressLine2) <br />
+                @Model.Customer.Person.Address.City <br />
+                @Model.Customer.Person.Address.State <br />
+                @Model.Customer.Person.Address.ZipCode
             </div>
         </li>
 }

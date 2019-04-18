@@ -21,13 +21,13 @@ namespace ProjectNehaPalace.Models.HotelViewModels
 
         //public Address Address { get; set; }
 
-        //[DataType(DataType.PhoneNumber)]
-        //public string PhoneNumber { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
 
         ////public ReservationModel ReservationInfo { get; set; }
 
-        //[DataType(DataType.EmailAddress)]
-        //public string EmailAddress { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string EmailAddress { get; set; }
 
         //public string SSN{ get; set; }
     }
