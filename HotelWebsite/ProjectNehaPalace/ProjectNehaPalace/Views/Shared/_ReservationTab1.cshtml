@@ -19,7 +19,7 @@
 
             </div>
 
-            <div class="booking-date-fields-container col-md-3  col-md-offset-2">
+            <div class="form-group col-md-3  col-md-offset-2">
                 <!-- Do NOT change the "booking-date-fields-container" Class -->
                 @Html.Label("CheckoutDate", "Check Out: ")
                 @Html.TextBoxFor(m => m.CheckoutDate, "",
@@ -27,7 +27,7 @@
                 @Html.ValidationMessageFor(m => m.CheckoutDate, "Checkout Date is required",
                                         new { @class = "text-danger" })
             </div>
-            <div class="booking-date-fields-container col-md-2 col-md-offset-2" style="margin-top: 10px">
+            <div class="form-group col-md-2 col-md-offset-2" style="margin-top: 10px">
                 <!-- Do NOT change the "booking-date-fields-container" Class -->
                 @Html.Label("NumberOfAdults", "Adults: ")
                 @Html.TextBoxFor(m => m.NumberOfAdults, "", new
@@ -43,7 +43,7 @@
 
             </div>
 
-            <div class="booking-date-fields-container col-md-2  col-md-offset-1" style="margin-top: 10px">
+            <div class="form-group col-md-2  col-md-offset-1" style="margin-top: 10px">
                 <!-- Do NOT change the "booking-date-fields-container" Class -->
                 @Html.Label("NumberOfChildren", "Children: ")
                 @Html.TextBoxFor(m => m.NumberOfChildren, "", new
@@ -59,7 +59,7 @@
 
             </div>
 
-            <div class="booking-date-fields-container col-md-2  col-md-offset-1" style="margin-top: 10px">
+            <div class="form-group col-md-2  col-md-offset-1" style="margin-top: 10px">
                 <!-- Do NOT change the "booking-date-fields-container" Class -->
                 @Html.Label("NumberOfRooms", "Number of rooms: ")
 
