@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using ProjectNehaPalaceWebAPI.Models;
+using ProjectNehaPalaceWebAPI.Data;
+using ProjectNehaPalaceWebAPI.Services;
 
 namespace ProjectNehaPalaceWebAPI
 {
@@ -34,6 +38,18 @@ namespace ProjectNehaPalaceWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.Configure<Settings>(
+        options =>
+        {
+            options.ConnectionString = Configuration.GetSection("MongoDb:ConnectionString").Value;
+            options.Database = Configuration.GetSection("MongoDb:Database").Value;
+        });
+
+
+            services.AddTransient<IRoomContext, RoomContext>();
+            services.AddTransient<IRoomRepository, RoomRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

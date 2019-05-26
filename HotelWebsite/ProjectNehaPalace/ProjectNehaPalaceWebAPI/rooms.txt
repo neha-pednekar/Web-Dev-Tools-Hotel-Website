@@ -1,1 +1,8 @@
-[{"RoomType":0,"RoomTariff":240.0,"Availability":true,"RoomsAvailable":20},{"RoomType":1,"RoomTariff":350.0,"Availability":true,"RoomsAvailable":10},{"RoomType":2,"RoomTariff":440.0,"Availability":true,"RoomsAvailable":5},{"RoomType":3,"RoomTariff":480.0,"Availability":true,"RoomsAvailable":5},{"RoomType":4,"RoomTariff":530.0,"Availability":true,"RoomsAvailable":2},{"RoomType":5,"RoomTariff":620.0,"Availability":true,"RoomsAvailable":2}]
+{[
+{"RoomType":"SingleRoom","RoomTariff":240.0,"RoomsAvailable":20},
+{"RoomType":"DoubleRoom","RoomTariff":350.0,"RoomsAvailable":10},
+{"RoomType":"DeluxeOneBedSuite","RoomTariff":440.0,"RoomsAvailable":5},
+{"RoomType":"DeluxeTwoBedSuite","RoomTariff":480.0,"RoomsAvailable":5},
+{"RoomType":"RoyalSuite","RoomTariff":530.0,"RoomsAvailable":2},
+{"RoomType":"KingSuite","RoomTariff":620.0,"RoomsAvailable":2}
+]}

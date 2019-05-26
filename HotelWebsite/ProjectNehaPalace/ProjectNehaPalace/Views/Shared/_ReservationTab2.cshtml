@@ -11,30 +11,20 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
         @Html.HiddenFor(m => m.NumberOfAdults, Model.NumberOfAdults)
         @Html.HiddenFor(m => m.NumberOfChildren, Model.NumberOfChildren)
         @Html.HiddenFor(m => m.NumberOfRooms, Model.NumberOfRooms)
-        @*@Html.Hidden("IsSingleRoom")
-        @Html.Hidden("IsDoubleRoom")
-        @Html.Hidden("IsDeluxeOneBedroom")
-        @Html.Hidden("IsDeluxeTwoBedroom")
-        @Html.Hidden("IsRoyalSuit")
-        @Html.Hidden("IsKingSuit")*@
-        @*@if (Model.RoomDetails != null)
-            {
-                @Html.HiddenFor(m => Model.RoomDetails)
-                for (var i = 0; i < Model.RoomDetails.Count; i++)
-                {
-                    @Html.HiddenFor(x => x.RoomDetails[i].RoomType)
-                    @Html.HiddenFor(x => x.RoomDetails[i].RoomTariff)
-                }
-            }*@
+       
     }
 
     <div class="heading-box">
         @if (Model != null)
         {
             @if (Model.NumberOfRooms == 1)
-            {<h2>Go ahead and select any <span>@Model.NumberOfRooms</span> room</h2>}
-        else
-        { <h2>Go ahead and select any <span>@Model.NumberOfRooms</span> rooms</h2>}
+            {
+                <h2>Go ahead and select any <span>@Model.NumberOfRooms</span> room</h2>
+            }
+            else
+            { 
+                <h2>Go ahead and select any <span>@Model.NumberOfRooms</span> rooms</h2>
+            }
         }
     </div>
     <div class="main-booking-description">

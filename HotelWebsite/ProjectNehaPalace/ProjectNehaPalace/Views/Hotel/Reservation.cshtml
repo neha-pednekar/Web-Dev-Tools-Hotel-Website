@@ -21,15 +21,41 @@
                 <h2>Book <span>Now</span></h2>
             </div>
             <div class="main-booking-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur alias minus, 
-                commodi eligendi reprehenderit ea illum placeat recusandae architecto magnam aspernatur 
-                doloremque, odio maxime ducimus voluptates eveniet cumque assumenda delectus? Quisquam 
-                nobis, eligendi. Earum dolore culpa tenetur qui at, voluptas repellendus quisquam minima 
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur alias minus,
+                commodi eligendi reprehenderit ea illum placeat recusandae architecto magnam aspernatur
+                doloremque, odio maxime ducimus voluptates eveniet cumque assumenda delectus? Quisquam
+                nobis, eligendi. Earum dolore culpa tenetur qui at, voluptas repellendus quisquam minima
                 incidunt. Asperiores.
             </div>
 
+            <ul class="nav nav-tabs nav-justified" id="booking-tabs" role="tablist">
+                <li class="nav-item" id="tab1">
+                    <a href="#booking-choose-date" class="nav-link active" data-toggle="tab" role="tab">
+                        <span class="number">1</span><!-- Tab number -->
+                        <span class="title">Choose <b>Date</b></span><!-- Tab title -->
+                    </a>
+                </li>
+                <li class="nav-item" id="tab2">
+                    <a href="#booking-choose-room" class="nav-link disabled" data-toggle="tab" role="tab">
+                        <span class="number">2</span><!-- Tab number -->
+                        <span class="title">Choose <b>Room</b></span><!-- Tab title -->
+                    </a>
+                </li>
+                <li class="nav-item" id="tab3">
+                    <a href="#booking-reservation" class="nav-link disabled" data-toggle="tab" role="tab">
+                        <span class="number">3</span><!-- Tab number -->
+                        <span class="title">Reservation</span><!-- Tab title -->
+                    </a>
+                </li>
+                <li class="nav-item" id="tab4">
+                    <a  href="#booking-confirmation" class="nav-link disabled" data-toggle="tab" role="tab">
+                        <span class="number">4</span><!-- Tab number -->
+                        <span class="title">Confirmation</span><!-- Tab title -->
+                    </a>
+                </li>
+            </ul>
 
-            <!-- The tabular structure uses the Bootstrap tab structure! -->
+            @*<!-- The tabular structure uses the Bootstrap tab structure! -->
             <ul class="nav nav-tabs nav-justified" id="booking-tabs">
                 <!-- Booking Tabs -->
                 <li class="active" id="tab1">
@@ -40,80 +66,56 @@
                     </a>
                 </li>
                 <li id="tab2">
-                    <a href="#booking-choose-room" data-toggle="tab"  class="nav_link">
+                    <a href="#booking-choose-room" data-toggle="tab" class="nav_link">
                         <span class="number">2</span><!-- Tab number -->
                         <span class="title">Choose <b>Room</b></span><!-- Tab title -->
                     </a>
                 </li>
                 <li id="tab3">
-                    <a href="#booking-reservation" data-toggle="tab"  class="nav_link">
+                    <a href="#booking-reservation" data-toggle="tab" class="nav_link">
                         <span class="number">3</span><!-- Tab number -->
                         <span class="title">Reservation</span><!-- Tab title -->
                     </a>
                 </li>
-                <li  id="tab4">
-                    <a href="#booking-confirmation" data-toggle="tab"  class="nav_link">
+                <li id="tab4">
+                    <a href="#booking-confirmation" data-toggle="tab" class="nav_link">
                         <span class="number">4</span><!-- Tab number -->
                         <span class="title">Confirmation</span><!-- Tab title -->
                     </a>
                 </li>
-            </ul>
+            </ul>*@
 
             @*<form class="form-inline" id="reservationSummaryForm" method="post"
         action="@Url.Action("ReservationSummary", "Hotel", Model)">
                   @Html.HiddenFor(m => m.ReservationTabStatus)*@
             <!-- Tab main content container -->
-    @*@using (Html.BeginForm("Reservation", "Hotel", FormMethod.Post, new { @id = "saveForm" }))
-    {*@
+            @*@using (Html.BeginForm("Reservation", "Hotel", FormMethod.Post, new { @id = "saveForm" }))
+        {*@
             <div id="booking-tab-contents" class="tab-content">
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
-                <div class="tab-pane fadeInUp in active clearfix" id="booking-choose-date">
+                <div class="tab-pane fadeInUp in active clearfix" id="booking-choose-date" role="tabpanel">
                     <!-- Check In / Check Out section -->
                     @{Html.RenderPartial("_ReservationTab1", Model); }
                 </div>
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
-                <div class="tab-pane fadeInUp clearfix" id="booking-choose-room">
+                <div class="tab-pane fadeInUp clearfix" id="booking-choose-room" role="tabpanel">
                     @{Html.RenderPartial("_ReservationTab2", Model); }
                 </div>
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
-                <div class="tab-pane fadeInUp clearfix" id="booking-reservation">
+                <div class="tab-pane fadeInUp clearfix" id="booking-reservation" role="tabpanel">
                     @{Html.RenderPartial("_ReservationTab3", Model); }
                 </div>
 
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
-                <div class="tab-pane fadeInUp clearfix" id="booking-confirmation">
+                <div class="tab-pane fadeInUp clearfix" id="booking-confirmation" role="tabpanel">
                     @{Html.RenderPartial("_ReservationTab4", Model); }
                 </div>
                 @*<button type="button" id="changetabbutton" class="btn btn-primary ">Set next tab</button>*@
 
             </div>
-    @* } *@
+            @* } *@
         </div>
 </div>
 <!-- End of Booking Page Container -->
 
 </div>
-
-
-@*@section scripts {
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#resSummarySubmit').click(function (e) {
-                e.preventDefault();
-                // recommended in SO, does not appear to be required
-                $('#reservationSummaryForm').attr('action', '/Hotel/ReservationSummary');
-                $('#reservationSummaryForm').submit();
-
-
-                var lastActiveTab = ($('#ActiveTab').val() !== '') ? $('#ActiveTab').val() : 'booking-reservation';
-                $('#booking-tabs a[href="#' + lastActiveTab + '"]').tab('show');
-                $("#booking-tabs a").click(function () {
-                    $('#ActiveTab').val($(this).attr("href").replace("#", ""));
-                });
-
-            });
-
-
-        });
-    </script>
-}*@
