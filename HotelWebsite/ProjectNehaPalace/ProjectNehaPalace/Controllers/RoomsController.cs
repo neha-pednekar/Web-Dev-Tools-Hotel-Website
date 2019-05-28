@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ProjectNehaPalace.Models;
-using ProjectNehaPalace.Models.HotelViewModels;
+using ProjectNehaPalace.Models.HotelModels;
 
 namespace ProjectNehaPalace.Controllers
 {

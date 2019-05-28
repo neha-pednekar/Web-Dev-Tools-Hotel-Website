@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectNehaPalace.Models;
-using ProjectNehaPalace.Models.HotelViewModels;
+using ProjectNehaPalace.Models.HotelModels;
 
 namespace ProjectNehaPalace.Controllers
 {

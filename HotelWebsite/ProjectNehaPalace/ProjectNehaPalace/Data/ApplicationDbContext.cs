@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProjectNehaPalace.Models;
-using ProjectNehaPalace.Models.HotelViewModels;
+using ProjectNehaPalace.Models.HotelModels;
 
 namespace ProjectNehaPalace.Data
 {

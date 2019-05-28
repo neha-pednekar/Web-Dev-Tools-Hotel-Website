@@ -17,7 +17,7 @@ namespace ProjectNehaPalace.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -248,11 +248,15 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.Property<string>("CustomerID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("EmailAddress");
+
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
 
                     b.Property<string>("PersonID");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.HasKey("CustomerID");
 

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProjectNehaPalace.Models.HotelViewModels
+namespace ProjectNehaPalace.Models.HotelModels
 {
     public class Room
     {

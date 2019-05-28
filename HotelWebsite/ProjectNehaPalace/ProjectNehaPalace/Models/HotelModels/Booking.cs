@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProjectNehaPalace.Models.HotelViewModels
+namespace ProjectNehaPalace.Models.HotelModels
 {
     public class Booking
     {
@@ -40,18 +40,6 @@ namespace ProjectNehaPalace.Models.HotelViewModels
         [Required]
         [DisplayName("Number of Children")]
         public int NumberOfChildren { get; set; }
-
-        //public bool IsSingleRoom { get; set; }
-
-        //public bool IsDoubleRoom { get; set; }
-
-        //public bool IsDeluxeOneBedroom { get; set; }
-
-        //public bool IsDeluxeTwoBedroom { get; set; }
-
-        //public bool IsRoyalSuit { get; set; }
-
-        //public bool IsKingSuit { get; set; }
 
         [DisplayName("Total Cost")]
         public double TotalCost { get; set; }
