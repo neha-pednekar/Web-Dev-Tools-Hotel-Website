@@ -1,8 +1,9 @@
-﻿@model ProjectNehaPalace.Models.HotelViewModels.Booking;
+﻿@model ProjectNehaPalace.Models.HotelModels.Booking;
 
 @using (Html.BeginForm("SaveRoomDetails", "Hotel", FormMethod.Post,
 new { enctype = "multipart/form-data", id = "saveRoomForm" }))
 {
+    var count = Model.NumberOfRooms;
     @Html.AntiForgeryToken()
     @if (Model != null)
     {
@@ -23,7 +24,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             }
             else
             { 
-                <h2>Go ahead and select any <span>@Model.NumberOfRooms</span> rooms</h2>
+                <h2>Go ahead and select <span>@Model.NumberOfRooms</span> rooms</h2>
             }
         }
     </div>

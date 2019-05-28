@@ -8,19 +8,8 @@ using System.Threading.Tasks;
 
 namespace ProjectNehaPalace.Models.HotelModels
 {
-    public class Booking
+    public class PreBookingInformation
     {
-        [DisplayName("Booking ID")]
-        public String BookingID { get; set; }
-
-        public ICollection<Room> Room { get; set; }
-
-        public Customer Customer { get; set; }
-
-        public Employee Employee { get; set; }
-
-        public Payment Payment { get; set; }
-
         [Required]
         [DisplayName("Checkin Date")]
         [ValidateDateRange(6)]
@@ -35,26 +24,15 @@ namespace ProjectNehaPalace.Models.HotelModels
 
         [Required]
         [DisplayName("Number of Adults")]
-        [Range(1,4)]
+        [Range(1, 10)]
         public int NumberOfAdults { get; set; }
 
         [Required]
-        [Range(1,4)]
+        [Range(1, 10)]
         [DisplayName("Number of Children")]
         public int NumberOfChildren { get; set; }
 
-        [DisplayName("Total Cost")]
-        public double TotalCost { get; set; }
-
         [DisplayName("Number of Rooms")]
         public double NumberOfRooms { get; set; }
-
-        [DisplayName("Number of Days")]
-        public int NumberOfDays { get; set; }
-
-        [DataType(DataType.Date)]
-        public DateTime BookingDate { get; set; }
-
-        public DateTime LastModifiedDate { get; set; }
     }
 }
