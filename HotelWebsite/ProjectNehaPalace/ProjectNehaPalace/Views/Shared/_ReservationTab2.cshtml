@@ -1,6 +1,6 @@
 ﻿@model ProjectNehaPalace.Models.HotelModels.Booking;
 
-@using (Html.BeginForm("SaveRoomDetails", "Hotel", FormMethod.Post,
+@*@using (Html.BeginForm("SaveRoomDetails", "Hotel", FormMethod.Post,
 new { enctype = "multipart/form-data", id = "saveRoomForm" }))
 {
     var count = Model.NumberOfRooms;
@@ -13,7 +13,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
         @Html.HiddenFor(m => m.NumberOfChildren, Model.NumberOfChildren)
         @Html.HiddenFor(m => m.NumberOfRooms, Model.NumberOfRooms)
 
-    }
+    }*@
 
     <div class="heading-box">
         @if (Model != null)
@@ -71,7 +71,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="2" id="room-2">*@
-                    @Html.CheckBox("IsDoubleRoom", new { @name = "roomType" })
+                    @*@Html.CheckBox("IsDoubleRoom", new { @name = "roomType" })*@
                     <label for="room-2">
                         <span></span>
                         Select This <b>Room</b>
@@ -98,7 +98,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="3" id="room-3">*@
-                    @Html.CheckBox("IsDeluxeOneBedroom", new { @name = "roomType" })
+                    @*@Html.CheckBox("IsDeluxeOneBedroom", new { @name = "roomType" })*@
                     <label for="room-3">
                         <span></span>
                         Select This <b>Room</b>
@@ -126,7 +126,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="4" id="room-4">*@
-                    @Html.CheckBox("IsDeluxeTwoBedroom", new { @name = "roomType" })
+                    @*@Html.CheckBox("IsDeluxeTwoBedroom", new { @name = "roomType" })*@
                     <label for="room-4">
                         <span></span>
                         Select This <b>Room</b>
@@ -154,7 +154,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="5" id="room-5">*@
-                    @Html.CheckBox("IsRoyalSuit", new { @name = "roomType" })
+                    @*@Html.CheckBox("IsRoyalSuit", new { @name = "roomType" })*@
                     <label for="room-5">
                         <span></span>
                         Select This <b>Room</b>
@@ -182,7 +182,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="6" id="room-6">*@
-                    @Html.CheckBox("IsKingSuit", new { @name = "roomType" })
+                    @*@Html.CheckBox("IsKingSuit", new { @name = "roomType" })*@
                     <label for="room-6">
                         <span></span>
                         Select This <b>Room</b>
@@ -205,12 +205,12 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             </div>
         </div>
 
-        <div class="col-md-12" style="margin-top: 30px; text-align: center">
+        @*<div class="col-md-12" style="margin-top: 30px; text-align: center">
             @*<button type="submit" id="next1" class="btn btn-default">Next</button>*@
-            <input type="submit" id="next2" style="letter-spacing: 2px"
+            @*<input type="submit" id="next2" style="letter-spacing: 2px"
                    class="btn btn-default" value="Save and Continue >>">
-        </div>
+        </div>*@
 
     </div>
-}
+    //}
 <!-- End of Rooms Container -->

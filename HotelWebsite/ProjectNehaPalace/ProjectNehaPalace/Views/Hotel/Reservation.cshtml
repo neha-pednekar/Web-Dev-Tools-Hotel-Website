@@ -55,12 +55,10 @@
                 </li>
             </ul>
 
-            @*<form class="form-inline" id="reservationSummaryForm" method="post"
-        action="@Url.Action("ReservationSummary", "Hotel", Model)">
-                  @Html.HiddenFor(m => m.ReservationTabStatus)*@
+
             <!-- Tab main content container -->
-            @*@using (Html.BeginForm("Reservation", "Hotel", FormMethod.Post, new { @id = "saveForm" }))
-        {*@
+          @*@using (Html.BeginForm("SaveRoomDetails", "Hotel", FormMethod.Post, new { @id = "saveForm" }))
+          {*@
             <div id="booking-tab-contents" class="tab-content">
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
                 <div class="tab-pane fadeInUp in active clearfix" id="booking-choose-date" role="tabpanel">
@@ -70,7 +68,6 @@
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
                 <div class="tab-pane fadeInUp clearfix" id="booking-choose-room" role="tabpanel">
                     @{Html.RenderPartial("_ReservationTab2", Model); }
-                    @*@{Html.ActionLink("SaveRoomDetails") }*@
                 </div>
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
                 <div class="tab-pane fadeInUp clearfix" id="booking-reservation" role="tabpanel">
@@ -84,7 +81,8 @@
                 @*<button type="button" id="changetabbutton" class="btn btn-primary ">Set next tab</button>*@
 
             </div>
-            @* } *@
+             @* } *@         
+        
         </div>
 </div>
 <!-- End of Booking Page Container -->

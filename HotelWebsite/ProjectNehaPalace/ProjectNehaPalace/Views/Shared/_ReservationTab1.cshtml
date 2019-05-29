@@ -10,7 +10,7 @@
                 @Html.Label("CheckinDate", "Check In: ")
                 @Html.TextBoxFor(m => m.CheckinDate, "",
              new { @class = "form-control", @type="date", @style = "width: 100%" })
-                @Html.ValidationMessageFor(m => m.CheckinDate, "*Required", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(m => m.CheckinDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -18,7 +18,7 @@
             @Html.Label("CheckoutDate", "Check Out: ")
             @Html.TextBoxFor(m => m.CheckoutDate, "",
                 new { @class = "form-control", @type="date", @style = "width: 100%" })
-            @Html.ValidationMessageFor(m => m.CheckoutDate, "*Required", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(m => m.CheckoutDate, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-2 form-group" style="margin-top: 10px;">
@@ -36,7 +36,7 @@
                 @max = 4
             })
             @Html.ValidationMessageFor(m => m.NumberOfAdults,
-                "*Required", new { @class = "text-danger" })
+                "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-4 col-md-offset-1 form-group" style="margin-top: 10px;">
@@ -50,14 +50,14 @@
                 @max = 4
             })
             @Html.ValidationMessageFor(m => m.NumberOfChildren,
-             "*Required", new { @class = "text-danger" })
+             "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-2 form-group" style="margin-top: 10px;">
 
         </div>
 
-        <div class="col-md-4 col-md-offset-1 form-group" style="margin-top: 10px;">
+        @*<div class="col-md-4 col-md-offset-1 form-group" style="margin-top: 10px;">
             @Html.Label("NumberOfRooms", "Number of rooms: ")
 
             @Html.TextBoxFor(m => m.NumberOfRooms, "", new
@@ -70,29 +70,18 @@
             })
             @Html.ValidationMessageFor(m => m.NumberOfRooms,
              "*Required", new { @class = "text-danger" })
-        </div>
+        </div>*@
 
         <div class="col-md-7 form-group" style="margin-top: 10px;">
 
         </div>
 
 
-        <div class="col-md-12 form-group" style="margin-top: 10px; margin-bottom: 10px; text-align: center">
-            <input id="" type="submit" style="letter-spacing: 2px" value="Book Now"
-                   class="btn btn-default btn-sm" />
-        </div>
 
         <div class="col-md-12" style="margin-top: 30px; text-align: center">
-            @*<button type="submit" id="next1" class="btn btn-default">Next</button>*@
+            <button type="submit" id="next1" class="btn btn-default">Next</button>
             <input type="submit" id="next1" style="letter-spacing: 2px"
                    class="btn btn-default" value="Save and Continue >>">
-        </div>
-
-        <div class="col-md-12 form-group" style="margin-top: 10px; margin-bottom: 10px; text-align:center">
-            <a asp-area="" asp-controller="Rooms" asp-action="Index" class="btn btn-default btn-sm"
-               style="letter-spacing: 2px">
-                Check Availability
-            </a>
         </div>
 
     </form>

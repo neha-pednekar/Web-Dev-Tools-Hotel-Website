@@ -4,7 +4,7 @@
 new { id = "submitCustomerData" }))
 {*@
 
-@if (Model != null)
+@*@if (Model != null)
 {
 <form class="form" id="submitCustomerData" method="post"
       action="@Url.Action("SubmitCustomerData", "Hotel")">
@@ -23,7 +23,7 @@ new { id = "submitCustomerData" }))
         @Html.Hidden("IsDeluxeOneBedroom")
         @Html.Hidden("IsDeluxeTwoBedroom")
         @Html.Hidden("IsRoyalSuit")
-        @Html.Hidden("IsKingSuit")
+        @Html.Hidden("IsKingSuit")*@
 
         @*@if (Model.RoomDetails != null)
             {
@@ -215,13 +215,8 @@ new { id = "submitCustomerData" }))
         </div>
 
     </div>
-
-    <div class="col-md-12" style="margin-top: 30px; text-align: center">
-        @*<button type="submit" id="next1" class="btn btn-default">Next</button>*@
-        <input type="submit" id="next3" style="letter-spacing: 2px"
-               class="btn btn-default" value="Submit Form and Make Payment">
-    </div>
+    
     <!-- End of Guest Info form -->
     @*  }*@
-</form>
-}
+@*</form>
+}*@
