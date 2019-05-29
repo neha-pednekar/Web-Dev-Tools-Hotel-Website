@@ -1,0 +1,8 @@
+[
+{"RoomType":1,"RoomTariff":240.0,"RoomsAvailable":20, "RoomsBooked":0, "TotalRooms":20},
+{"RoomType":2,"RoomTariff":350.0,"RoomsAvailable":10, "RoomsBooked":0, "TotalRooms":10},
+{"RoomType":3,"RoomTariff":440.0,"RoomsAvailable":5, "RoomsBooked":0, "TotalRooms":5},
+{"RoomType":4,"RoomTariff":480.0,"RoomsAvailable":5, "RoomsBooked":0, "TotalRooms":5},
+{"RoomType":5,"RoomTariff":530.0,"RoomsAvailable":2, "RoomsBooked":0, "TotalRooms":2},
+{"RoomType":6,"RoomTariff":620.0,"RoomsAvailable":2, "RoomsBooked":0, "TotalRooms":2}
+]

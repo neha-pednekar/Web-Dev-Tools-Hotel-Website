@@ -19,7 +19,7 @@ namespace ProjectNehaPalaceWebAPI.Services
 
         public async Task<List<RoomModel>> GetAllRooms()
         {
-            return await _roomContext.Rooms.Find(book => true).ToListAsync();
+            return await _roomContext.Rooms.Find(room => true).ToListAsync();
         }
 
         public async Task<RoomModel> GetRoom(string name)
