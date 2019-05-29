@@ -12,7 +12,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
         @Html.HiddenFor(m => m.NumberOfAdults, Model.NumberOfAdults)
         @Html.HiddenFor(m => m.NumberOfChildren, Model.NumberOfChildren)
         @Html.HiddenFor(m => m.NumberOfRooms, Model.NumberOfRooms)
-       
+
     }
 
     <div class="heading-box">
@@ -23,7 +23,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
                 <h2>Go ahead and select any <span>@Model.NumberOfRooms</span> room</h2>
             }
             else
-            { 
+            {
                 <h2>Go ahead and select <span>@Model.NumberOfRooms</span> rooms</h2>
             }
         }
@@ -42,8 +42,8 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="1" id="room-1">*@
-                    @Html.CheckBox("IsSingleRoom")
-                    <label for="room-1">
+                    @*@Html.CheckBox("IsSingleRoom", new { @name = "roomType" })*@
+                    <label for="SingleRoom">
                         <span></span>
                         Select This <b>Room</b>
                     </label>
@@ -58,6 +58,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
                     Quisquam, pariatur, officiis. Cupiditate autem, accusantium,
                     saepe quasi eaque labore deleniti alias?
                 </div>
+                @Html.EditorFor(m => m.SingleRoom, new { htmlAttributes = new { type = "number", min = "1", max = "5", @class = "form-control" } })
                 <div class="price">
                     <span>$240</span>
                     - Per Night
@@ -70,7 +71,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="2" id="room-2">*@
-                    @Html.CheckBox("IsDoubleRoom")
+                    @Html.CheckBox("IsDoubleRoom", new { @name = "roomType" })
                     <label for="room-2">
                         <span></span>
                         Select This <b>Room</b>
@@ -84,6 +85,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
                 <div class="desc">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
                 </div>
+                @Html.EditorFor(m => m.DoubleRoom, new { htmlAttributes = new { type = "number", min = "1", max = "5", @class = "form-control" } })
                 <div class="price">
                     <span>$350</span>
                     - Per Night
@@ -96,7 +98,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="3" id="room-3">*@
-                    @Html.CheckBox("IsDeluxeOneBedroom")
+                    @Html.CheckBox("IsDeluxeOneBedroom", new { @name = "roomType" })
                     <label for="room-3">
                         <span></span>
                         Select This <b>Room</b>
@@ -110,6 +112,8 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
                 <div class="desc">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
                 </div>
+                @Html.EditorFor(m => m.DeluxeOneBedSuite, new { htmlAttributes = new { type = "number", min = "1", max = "5", @class = "form-control" } })
+
                 <div class="price">
                     <span>$440</span>
                     - Per Night
@@ -122,7 +126,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="4" id="room-4">*@
-                    @Html.CheckBox("IsDeluxeTwoBedroom")
+                    @Html.CheckBox("IsDeluxeTwoBedroom", new { @name = "roomType" })
                     <label for="room-4">
                         <span></span>
                         Select This <b>Room</b>
@@ -136,6 +140,8 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
                 <div class="desc">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
                 </div>
+                @Html.EditorFor(m => m.DeluxeTwoBedSuite, new { htmlAttributes = new { type = "number", min = "1", max = "5", @class = "form-control" } })
+
                 <div class="price">
                     <span>$480</span>
                     - Per Night
@@ -148,7 +154,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="5" id="room-5">*@
-                    @Html.CheckBox("IsRoyalSuit")
+                    @Html.CheckBox("IsRoyalSuit", new { @name = "roomType" })
                     <label for="room-5">
                         <span></span>
                         Select This <b>Room</b>
@@ -162,6 +168,8 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
                 <div class="desc">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
                 </div>
+                @Html.EditorFor(m => m.RoyalSuite, new { htmlAttributes = new { type = "number", min = "1", max = "5", @class = "form-control" } })
+
                 <div class="price">
                     <span>$530</span>
                     - Per Night
@@ -174,7 +182,7 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
             <div class="img-container">
                 <div class="check-box-container">
                     @*<input type="checkbox" value="6" id="room-6">*@
-                    @Html.CheckBox("IsKingSuit")
+                    @Html.CheckBox("IsKingSuit", new { @name = "roomType" })
                     <label for="room-6">
                         <span></span>
                         Select This <b>Room</b>
@@ -188,6 +196,8 @@ new { enctype = "multipart/form-data", id = "saveRoomForm" }))
                 <div class="desc">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, pariatur, officiis. Cupiditate autem, accusantium, saepe quasi eaque labore deleniti alias?
                 </div>
+                @Html.EditorFor(m => m.KingSuite, new { htmlAttributes = new { type = "number", min = "1", max = "5", @class = "form-control" } })
+
                 <div class="price">
                     <span>$620</span>
                     - Per Night

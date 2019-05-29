@@ -13,7 +13,19 @@ namespace ProjectNehaPalace.Models.HotelModels
         [DisplayName("Booking ID")]
         public String BookingID { get; set; }
 
-        public ICollection<Room> Room { get; set; }
+        public List<Room> Room { get; set; }
+
+        public int SingleRoom { get; set; }
+
+        public int DoubleRoom { get; set; }
+
+        public int DeluxeOneBedSuite { get; set; }
+
+        public int DeluxeTwoBedSuite { get; set; }
+
+        public int RoyalSuite { get; set; }
+
+        public int KingSuite { get; set; }
 
         public Customer Customer { get; set; }
 

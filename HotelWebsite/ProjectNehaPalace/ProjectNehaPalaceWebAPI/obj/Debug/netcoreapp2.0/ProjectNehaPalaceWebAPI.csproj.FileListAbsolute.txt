@@ -14,7 +14,6 @@ C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\Hot
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.runtimeconfig.dev.json
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.dll
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\bin\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.pdb
-C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.csprojAssemblyReference.cache
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.csproj.CoreCompileInputs.cache
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.AssemblyInfoInputs.cache
 C:\Users\Neha Pednekar\source\repos\HotelWebsite\Web-Dev-Tools-Hotel-Website\HotelWebsite\ProjectNehaPalace\ProjectNehaPalaceWebAPI\obj\Debug\netcoreapp2.0\ProjectNehaPalaceWebAPI.AssemblyInfo.cs

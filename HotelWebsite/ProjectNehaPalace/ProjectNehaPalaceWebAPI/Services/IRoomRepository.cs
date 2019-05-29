@@ -8,10 +8,10 @@ namespace ProjectNehaPalaceWebAPI.Services
 {
     public interface IRoomRepository
     {
-        Task<List<Room>> GetAllRooms();
-        Task<Room> GetRoom(string name);
-        Task<Room> Create(Room room);
-        Task Update(string name, Room room);
+        Task<List<RoomModel>> GetAllRooms();
+        Task<RoomModel> GetRoom(string name);
+        Task<RoomModel> Create(RoomModel room);
+        Task Update(string name, RoomModel room);
         Task Delete(string name);
     }
 }

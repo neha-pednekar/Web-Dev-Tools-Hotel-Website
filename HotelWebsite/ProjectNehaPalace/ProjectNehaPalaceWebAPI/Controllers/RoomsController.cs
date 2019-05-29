@@ -19,14 +19,14 @@ namespace ProjectNehaPalaceWebAPI.Controllers
             _roomRepository = roomRepository;
         }
 
-        // GET: api/Rooms
+        // GET: api/rooms
         [HttpGet]
-        public async Task<IEnumerable<Room>> Get()
+        public async Task<IEnumerable<RoomModel>> Get()
         {
             return await _roomRepository.GetAllRooms();
         }
 
-        // GET: api/Rooms/SingleRoom
+        // GET: api/rooms/SingleRoom
         [HttpGet("{name}", Name = "Get")]
         public async Task<IActionResult> Get(string name)
         {
@@ -36,17 +36,17 @@ namespace ProjectNehaPalaceWebAPI.Controllers
             return new ObjectResult(room);
         }
         
-        // POST: api/Rooms
+        // POST: api/rooms
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]Room room)
+        public async Task<IActionResult> Post([FromBody]RoomModel room)
         {
             await _roomRepository.Create(room);
             return new OkObjectResult(room);
         }
         
-        // PUT: api/Rooms/SingleRoom
+        // PUT: api/rooms/SingleRoom
         [HttpPut("{name}")]
-        public async Task<IActionResult> Put(string name, [FromBody]Room room)
+        public async Task<IActionResult> Put(string name, [FromBody]RoomModel room)
         {
             var roomFromDb = await _roomRepository.GetRoom(name);
             if (roomFromDb == null)
@@ -56,7 +56,7 @@ namespace ProjectNehaPalaceWebAPI.Controllers
             return new OkObjectResult(room);
         }
         
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/rooms/XXXX
         [HttpDelete("{name}")]
         public async Task<IActionResult> Delete(string name)
         {

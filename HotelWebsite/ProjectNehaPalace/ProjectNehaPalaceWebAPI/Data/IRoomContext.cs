@@ -9,6 +9,6 @@ namespace ProjectNehaPalaceWebAPI.Data
 {
     interface IRoomContext
     {
-        IMongoCollection<Room> Rooms { get; }
+        IMongoCollection<RoomModel> Rooms { get; }
     }
 }

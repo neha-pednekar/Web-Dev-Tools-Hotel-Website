@@ -17,23 +17,23 @@ namespace ProjectNehaPalaceWebAPI.Services
             this._roomContext = roomContext;
         }
 
-        public async Task<List<Room>> GetAllRooms()
+        public async Task<List<RoomModel>> GetAllRooms()
         {
             return await _roomContext.Rooms.Find(book => true).ToListAsync();
         }
 
-        public async Task<Room> GetRoom(string name)
+        public async Task<RoomModel> GetRoom(string name)
         {
-            return await _roomContext.Rooms.Find<Room>(room => room.RoomType == name).FirstOrDefaultAsync();
+            return await _roomContext.Rooms.Find<RoomModel>(room => room.RoomType == name).FirstOrDefaultAsync();
         }
 
-        public async Task<Room> Create(Room room)
+        public async Task<RoomModel> Create(RoomModel room)
         {
             await _roomContext.Rooms.InsertOneAsync(room);
             return room;
         }
 
-        public async Task Update(string name, Room roomInput)
+        public async Task Update(string name, RoomModel roomInput)
         {
             await _roomContext.Rooms.ReplaceOneAsync(room => room.RoomType == name, roomInput);
         }

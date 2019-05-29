@@ -55,36 +55,6 @@
                 </li>
             </ul>
 
-            @*<!-- The tabular structure uses the Bootstrap tab structure! -->
-            <ul class="nav nav-tabs nav-justified" id="booking-tabs">
-                <!-- Booking Tabs -->
-                <li class="active" id="tab1">
-                    <!-- Add Active class for the active tab -->
-                    <a href="#booking-choose-date" data-toggle="tab" class="nav_link">
-                        <span class="number">1</span><!-- Tab number -->
-                        <span class="title">Choose <b>Date</b></span><!-- Tab title -->
-                    </a>
-                </li>
-                <li id="tab2">
-                    <a href="#booking-choose-room" data-toggle="tab" class="nav_link">
-                        <span class="number">2</span><!-- Tab number -->
-                        <span class="title">Choose <b>Room</b></span><!-- Tab title -->
-                    </a>
-                </li>
-                <li id="tab3">
-                    <a href="#booking-reservation" data-toggle="tab" class="nav_link">
-                        <span class="number">3</span><!-- Tab number -->
-                        <span class="title">Reservation</span><!-- Tab title -->
-                    </a>
-                </li>
-                <li id="tab4">
-                    <a href="#booking-confirmation" data-toggle="tab" class="nav_link">
-                        <span class="number">4</span><!-- Tab number -->
-                        <span class="title">Confirmation</span><!-- Tab title -->
-                    </a>
-                </li>
-            </ul>*@
-
             @*<form class="form-inline" id="reservationSummaryForm" method="post"
         action="@Url.Action("ReservationSummary", "Hotel", Model)">
                   @Html.HiddenFor(m => m.ReservationTabStatus)*@
@@ -100,6 +70,7 @@
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
                 <div class="tab-pane fadeInUp clearfix" id="booking-choose-room" role="tabpanel">
                     @{Html.RenderPartial("_ReservationTab2", Model); }
+                    @*@{Html.ActionLink("SaveRoomDetails") }*@
                 </div>
                 <!-- Tab Contents ( Do Not Change / Remove the ID) -->
                 <div class="tab-pane fadeInUp clearfix" id="booking-reservation" role="tabpanel">

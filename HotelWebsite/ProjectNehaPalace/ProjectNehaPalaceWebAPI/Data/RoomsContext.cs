@@ -13,6 +13,6 @@ namespace ProjectNehaPalaceWebAPI.Models
             var client = new MongoClient(options.Value.ConnectionString);
             _db = client.GetDatabase(options.Value.Database);
         }
-        public IMongoCollection<Room> Rooms => _db.GetCollection<Room>("Rooms");
+        public IMongoCollection<RoomModel> Rooms => _db.GetCollection<RoomModel>("Rooms");
     }
 }
