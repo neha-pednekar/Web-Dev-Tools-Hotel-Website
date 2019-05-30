@@ -4,10 +4,10 @@
 new { id = "submitCustomerData" }))
 {*@
 
-@*@if (Model != null)
+@if (Model != null)
 {
 <form class="form" id="submitCustomerData" method="post"
-      action="@Url.Action("SubmitCustomerData", "Hotel")">
+      action="@Url.Action("Confirmation", "Hotel")">
 
     @Html.AntiForgeryToken()
     @if (Model != null)
@@ -18,22 +18,23 @@ new { id = "submitCustomerData" }))
         @Html.HiddenFor(m => m.NumberOfChildren, Model.NumberOfChildren)
         @Html.HiddenFor(m => m.TotalCost, Model.TotalCost)
         @Html.HiddenFor(m => m.NumberOfDays, Model.NumberOfDays)
-        @Html.Hidden("IsSingleRoom")
-        @Html.Hidden("IsDoubleRoom")
-        @Html.Hidden("IsDeluxeOneBedroom")
-        @Html.Hidden("IsDeluxeTwoBedroom")
-        @Html.Hidden("IsRoyalSuit")
-        @Html.Hidden("IsKingSuit")*@
+        @Html.HiddenFor(m => m.SingleRoom, Model.SingleRoom)
+        @Html.HiddenFor(m => m.DoubleRoom, Model.DoubleRoom)
+        @Html.HiddenFor(m => m.DeluxeOneBedSuite, Model.DeluxeOneBedSuite)
+        @Html.HiddenFor(m => m.DeluxeTwoBedSuite, Model.DeluxeTwoBedSuite)
+        @Html.HiddenFor(m => m.RoyalSuite, Model.RoyalSuite)
+        @Html.HiddenFor(m => m.KingSuite, Model.KingSuite)
 
-        @*@if (Model.RoomDetails != null)
+
+        @if (Model.Room != null)
+        {
+            @Html.HiddenFor(m => Model.Room)
+            for (var i = 0; i < Model.Room.Count; i++)
             {
-                @Html.HiddenFor(m => Model.RoomDetails)
-                for (var i = 0; i < Model.RoomDetails.Count; i++)
-                {
-                    @Html.HiddenFor(x => x.RoomDetails[i].RoomType)
-                    @Html.HiddenFor(x => x.RoomDetails[i].RoomTariff)
-                }
-            }*@
+                @Html.HiddenFor(x => x.Room[i].RoomType)
+                @Html.HiddenFor(x => x.Room[i].RoomTariff)
+            }
+        }
 
     }
 
@@ -46,11 +47,11 @@ new { id = "submitCustomerData" }))
                 <ul style="list-style: none">
                     <li>
                         <div class="info">Check in :</div>
-                        <div class="value">@Model.CheckinDate.ToShortDateString()</div>
+                        <div class="value">@Model.CheckinDate.Value</div>
                     </li>
                     <li>
                         <div class="info">Check out :</div>
-                        <div class="value">@Model.CheckoutDate.ToShortDateString()</div>
+                        <div class="value">@Model.CheckoutDate.Value</div>
                     </li>
                     <li>
                         <div class="info">Total Number of Stay days :</div>
@@ -215,8 +216,14 @@ new { id = "submitCustomerData" }))
         </div>
 
     </div>
-    
+
+    <div class="col-md-12" style="margin-top: 30px; text-align: center">
+        <button type="submit" id="next1" class="btn btn-default">Next</button>
+        <input type="submit" id="next2" style="letter-spacing: 2px"
+               class="btn btn-default" value="Save and Submit Form >>">
+    </div>
+
     <!-- End of Guest Info form -->
     @*  }*@
-@*</form>
-}*@
+</form>
+}

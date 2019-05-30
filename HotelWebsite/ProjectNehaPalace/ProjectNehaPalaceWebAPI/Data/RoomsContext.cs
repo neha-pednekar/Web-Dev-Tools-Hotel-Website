@@ -12,7 +12,7 @@ namespace ProjectNehaPalaceWebAPI.Models
         {
             //var client = new MongoClient(options.Value.ConnectionString);
             //_db = client.GetDatabase(options.Value.Database);
-            var client = new MongoClient("mongodb+srv://neha_palace:neha1234@cluster0-bkhsz.mongodb.net?retryWrites=true");
+            var client = new MongoClient("");
             _db = client.GetDatabase("room_info");
         }
         public IMongoCollection<RoomModel> Rooms => _db.GetCollection<RoomModel>("rooms");

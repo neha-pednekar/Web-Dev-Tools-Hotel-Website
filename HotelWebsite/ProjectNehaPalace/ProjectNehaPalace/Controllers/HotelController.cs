@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.Kestrel.Internal.System.Collections.Sequences;
-using Newtonsoft.Json;
 using ProjectNehaPalace.Data;
 using ProjectNehaPalace.HelperMethods;
 using ProjectNehaPalace.Models.HotelModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -126,15 +122,22 @@ namespace ProjectNehaPalace.Controllers
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpGet]
         public IActionResult SaveBookingDates(Booking booking)
+        {
+            return View(booking);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult SaveRoomDetails(Booking booking)
         {
             return View("Reservation", booking);
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult SaveRoomDetails(Booking booking)
+        public IActionResult Confirmation(Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +145,6 @@ namespace ProjectNehaPalace.Controllers
                 booking.Room = new List<Room>();
 
                 //First check the availability of the room from the API
-                List<RoomModel> RoomsList = new List<RoomModel>();
                 IEnumerable<RoomModel> rooms = null;
 
                 using (var client = new HttpClient())
@@ -168,178 +170,161 @@ namespace ProjectNehaPalace.Controllers
 
                         ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                     }
-                }
 
-
-                //If the rooms are available then go ahead with the booking
-                if (RoomsList != null && RoomsList.Count > 0)
-                {
-                    foreach (RoomModel room in RoomsList)
+                    //If the rooms are available then go ahead with the booking
+                    if (rooms != null && rooms.Count() > 0)
                     {
-                        if (booking.SingleRoom > 0
-                         && room.RoomType == RoomType.SingleRoom.ToString()
-                         && room.RoomsAvailable >= booking.SingleRoom)
+                        foreach (RoomModel room in rooms)
                         {
-                            var singleRoom = new Room();
+                            if (booking.SingleRoom > 0
+                             && room.RoomType == RoomType.SingleRoom.ToString()
+                             && room.RoomsAvailable >= booking.SingleRoom)
+                            {
+                                var singleRoom = new Room();
 
-                            singleRoom.IsAvailable = true;
-                            singleRoom.LastModifiedDate = DateTime.Now;
-                            singleRoom.RoomsSelected = booking.SingleRoom;
-                            singleRoom.RoomTariff = room.RoomTariff;
-                            singleRoom.RoomType = room.RoomType;
-                            singleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
-                            
-                            booking.Room.Add(singleRoom);
-                        }
-                        else if (booking.DoubleRoom > 0
-                         && room.RoomType == RoomType.DoubleRoom.ToString()
-                         && room.RoomsAvailable >= booking.DoubleRoom)
-                        {
-                            var doubleRoom = new Room();
+                                singleRoom.IsAvailable = true;
+                                singleRoom.LastModifiedDate = DateTime.Now;
+                                singleRoom.RoomsSelected = booking.SingleRoom;
+                                singleRoom.RoomTariff = room.RoomTariff;
+                                singleRoom.RoomType = room.RoomType;
+                                singleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                            doubleRoom.IsAvailable = true;
-                            doubleRoom.LastModifiedDate = DateTime.Now;
-                            doubleRoom.RoomsSelected = booking.DoubleRoom;
-                            doubleRoom.RoomTariff = room.RoomTariff;
-                            doubleRoom.RoomType = room.RoomType;
-                            doubleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                booking.Room.Add(singleRoom);
 
-                            booking.Room.Add(doubleRoom);
-                        }
-                        else if (booking.DeluxeOneBedSuite > 0
-                         && room.RoomType == RoomType.DeluxeOneBedroomSuite.ToString()
-                         && room.RoomsAvailable >= booking.DeluxeOneBedSuite)
-                        {
-                            var deluxeOneBedSuite = new Room();
+                                room.RoomsAvailable--;
+                                room.RoomsBooked++;
 
-                            deluxeOneBedSuite.IsAvailable = true;
-                            deluxeOneBedSuite.LastModifiedDate = DateTime.Now;
-                            deluxeOneBedSuite.RoomsSelected = booking.DeluxeOneBedSuite;
-                            deluxeOneBedSuite.RoomTariff = room.RoomTariff;
-                            deluxeOneBedSuite.RoomType = room.RoomType;
-                            deluxeOneBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                var putTask = client.PutAsJsonAsync<RoomModel>("rooms/SingleRoom", room);
+                                putTask.Wait();
 
-                            booking.Room.Add(deluxeOneBedSuite);
-                        }
-                        else if (booking.DeluxeTwoBedSuite > 0
-                         && room.RoomType == RoomType.DeluxeTwoBedroomSuite.ToString()
-                         && room.RoomsAvailable >= booking.DeluxeTwoBedSuite)
-                        {
-                            var deluxeTwoBedSuite = new Room();
+                                var putResult = putTask.Result;
 
-                            deluxeTwoBedSuite.IsAvailable = true;
-                            deluxeTwoBedSuite.LastModifiedDate = DateTime.Now;
-                            deluxeTwoBedSuite.RoomsSelected = booking.DeluxeTwoBedSuite;
-                            deluxeTwoBedSuite.RoomTariff = room.RoomTariff;
-                            deluxeTwoBedSuite.RoomType = room.RoomType;
-                            deluxeTwoBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                if(!putResult.IsSuccessStatusCode)
+                                {
+                                    ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                }
+                            }
+                            else if (booking.DoubleRoom > 0
+                             && room.RoomType == RoomType.DoubleRoom.ToString()
+                             && room.RoomsAvailable >= booking.DoubleRoom)
+                            {
+                                var doubleRoom = new Room();
 
-                            booking.Room.Add(deluxeTwoBedSuite);
-                        }
-                        else if (booking.RoyalSuite > 0
-                         && room.RoomType == RoomType.RoyalSuit.ToString()
-                         && room.RoomsAvailable >= booking.RoyalSuite)
-                        {
-                            var royalSuite = new Room();
+                                doubleRoom.IsAvailable = true;
+                                doubleRoom.LastModifiedDate = DateTime.Now;
+                                doubleRoom.RoomsSelected = booking.DoubleRoom;
+                                doubleRoom.RoomTariff = room.RoomTariff;
+                                doubleRoom.RoomType = room.RoomType;
+                                doubleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                            royalSuite.IsAvailable = true;
-                            royalSuite.LastModifiedDate = DateTime.Now;
-                            royalSuite.RoomsSelected = booking.RoyalSuite;
-                            royalSuite.RoomTariff = room.RoomTariff;
-                            royalSuite.RoomType = room.RoomType;
-                            royalSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                booking.Room.Add(doubleRoom);
 
-                            booking.Room.Add(royalSuite);
-                        }
-                        else if(booking.KingSuite > 0
-                         && room.RoomType == RoomType.KingSuit.ToString()
-                         && room.RoomsAvailable >= booking.KingSuite)
-                        {
-                            var kingSuite = new Room();
+                                room.RoomsAvailable--;
+                                room.RoomsBooked++;
+                            }
+                            else if (booking.DeluxeOneBedSuite > 0
+                             && room.RoomType == RoomType.DeluxeOneBedroomSuite.ToString()
+                             && room.RoomsAvailable >= booking.DeluxeOneBedSuite)
+                            {
+                                var deluxeOneBedSuite = new Room();
 
-                            kingSuite.IsAvailable = true;
-                            kingSuite.LastModifiedDate = DateTime.Now;
-                            kingSuite.RoomsSelected = booking.KingSuite;
-                            kingSuite.RoomTariff = room.RoomTariff;
-                            kingSuite.RoomType = room.RoomType;
-                            kingSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                deluxeOneBedSuite.IsAvailable = true;
+                                deluxeOneBedSuite.LastModifiedDate = DateTime.Now;
+                                deluxeOneBedSuite.RoomsSelected = booking.DeluxeOneBedSuite;
+                                deluxeOneBedSuite.RoomTariff = room.RoomTariff;
+                                deluxeOneBedSuite.RoomType = room.RoomType;
+                                deluxeOneBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                            booking.Room.Add(kingSuite);
+                                booking.Room.Add(deluxeOneBedSuite);
+
+                                room.RoomsAvailable--;
+                                room.RoomsBooked++;
+                            }
+                            else if (booking.DeluxeTwoBedSuite > 0
+                             && room.RoomType == RoomType.DeluxeTwoBedroomSuite.ToString()
+                             && room.RoomsAvailable >= booking.DeluxeTwoBedSuite)
+                            {
+                                var deluxeTwoBedSuite = new Room();
+
+                                deluxeTwoBedSuite.IsAvailable = true;
+                                deluxeTwoBedSuite.LastModifiedDate = DateTime.Now;
+                                deluxeTwoBedSuite.RoomsSelected = booking.DeluxeTwoBedSuite;
+                                deluxeTwoBedSuite.RoomTariff = room.RoomTariff;
+                                deluxeTwoBedSuite.RoomType = room.RoomType;
+                                deluxeTwoBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+
+                                booking.Room.Add(deluxeTwoBedSuite);
+
+                                room.RoomsAvailable--;
+                                room.RoomsBooked++;
+                            }
+                            else if (booking.RoyalSuite > 0
+                             && room.RoomType == RoomType.RoyalSuit.ToString()
+                             && room.RoomsAvailable >= booking.RoyalSuite)
+                            {
+                                var royalSuite = new Room();
+
+                                royalSuite.IsAvailable = true;
+                                royalSuite.LastModifiedDate = DateTime.Now;
+                                royalSuite.RoomsSelected = booking.RoyalSuite;
+                                royalSuite.RoomTariff = room.RoomTariff;
+                                royalSuite.RoomType = room.RoomType;
+                                royalSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+
+                                booking.Room.Add(royalSuite);
+
+                                room.RoomsAvailable--;
+                                room.RoomsBooked++;
+                            }
+                            else if (booking.KingSuite > 0
+                             && room.RoomType == RoomType.KingSuit.ToString()
+                             && room.RoomsAvailable >= booking.KingSuite)
+                            {
+                                var kingSuite = new Room();
+
+                                kingSuite.IsAvailable = true;
+                                kingSuite.LastModifiedDate = DateTime.Now;
+                                kingSuite.RoomsSelected = booking.KingSuite;
+                                kingSuite.RoomTariff = room.RoomTariff;
+                                kingSuite.RoomType = room.RoomType;
+                                kingSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+
+                                booking.Room.Add(kingSuite);
+
+                                room.RoomsAvailable--;
+                                room.RoomsBooked++;
+                            }
                         }
                     }
+
+
+                    //Calculate the total cost
+
+                    foreach (Room room in booking.Room)
+                    {
+                        totalBookingAmount += room.RoomTariff;
+                    }
+
+                    booking.TotalCost = totalBookingAmount;
+
+                    //Remaining Room Details
+                    booking.BookingDate = DateTime.Today;
+
+                    //Generate a booking ID 
+                    booking.BookingID = HelperMethods.HelperMethods.RandomString(10);
+                    booking.BookingDate = DateTime.Today;
+
+
+
                 }
-
-                //Calculate the total cost
-
-                foreach(Room room in booking.Room)
-                {
-                    totalBookingAmount += room.RoomTariff;
-                }
-
-                booking.TotalCost = totalBookingAmount;
-
-                //Remaining Room Details
-                booking.BookingDate = DateTime.Today;
+                
 
             }
 
-            return View("Reservation", booking);
+            return View("Confirmation", booking);
         }
 
-        [Authorize]
-        [HttpPost]
-        public IActionResult SubmitCustomerData(Booking booking)
-        {
-            if (ModelState.IsValid)
-            {
-                //reservationModel.RoomDetails = new List<Room>();
-                //if (reservationModel.IsSingleRoom == true)
-                //{
-                //    var roomModel = new Room(RoomType.SingleRoom.ToString(), (double)RoomTariff.SingleRoom,
-                //        true, (int)RoomsAvailable.SingleRoom);
-                //    reservationModel.RoomDetails.Add(roomModel);
-                //}
-                //if (reservationModel.IsDoubleRoom == true)
-                //{
-                //    var roomModel = new Room(RoomType.DoubleRoom.ToString(), (double)RoomTariff.DoubleRoom,
-                //        true, (int)RoomsAvailable.DoubleRoom);
-                //    reservationModel.RoomDetails.Add(roomModel);
-                //}
-                //if (reservationModel.IsDeluxeOneBedroom == true)
-                //{
-                //    var roomModel = new Room(RoomType.DeluxeOneBedroomSuite.ToString(),
-                //        (double)RoomTariff.DeluxeOneBedroomSuite,
-                //        true, (int)RoomsAvailable.DeluxeOneBedroomSuite);
-                //    reservationModel.RoomDetails.Add(roomModel);
-                //}
-                //if (reservationModel.IsDeluxeTwoBedroom == true)
-                //{
-                //    var roomModel = new Room(RoomType.DeluxeTwoBedroomSuite.ToString(),
-                //        (double)RoomTariff.DeluxeTwoBedroomSuite,
-                //        true, (int)RoomsAvailable.DeluxeTwoBedroomSuite);
-                //    reservationModel.RoomDetails.Add(roomModel);
-                //}
-                //if (reservationModel.IsRoyalSuit == true)
-                //{
-                //    var roomModel = new Room(RoomType.RoyalSuit.ToString(), (double)RoomTariff.RoyalSuit,
-                //        true, (int)RoomsAvailable.RoyalSuit);
-                //    reservationModel.RoomDetails.Add(roomModel);
-                //}
-                //if (reservationModel.IsKingSuit == true)
-                //{
-                //    var roomModel = new Room(RoomType.KingSuit.ToString(), (double)RoomTariff.KingSuit,
-                //        true, (int)RoomsAvailable.KingSuit);
-                //    reservationModel.RoomDetails.Add(roomModel);
-                //}
-
-                //Generate a booking ID 
-                booking.BookingID = HelperMethods.HelperMethods.RandomString(10);
-                booking.BookingDate = DateTime.Today;
-            }
-
-            //HttpContext.Session.SetObjectAsJson("ReservationModel", reservationModel);
-            return View("Reservation", booking);
-        }
+        //public IActionResult Confirmation
 
         //[Authorize]
         //[HttpPost]

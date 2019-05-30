@@ -37,13 +37,13 @@ namespace ProjectNehaPalace.Models.HotelModels
         [DisplayName("Checkin Date")]
         [ValidateDateRange(6)]
         [DataType(DataType.Date)]
-        public DateTime CheckinDate { get; set; }
+        public Nullable<DateTime> CheckinDate { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         [DisplayName("Checkout Date")]
         [ValidateDateRange(6)]
-        public DateTime CheckoutDate { get; set; }
+        public Nullable<DateTime> CheckoutDate { get; set; }
 
         [Required]
         [DisplayName("Number of Adults")]

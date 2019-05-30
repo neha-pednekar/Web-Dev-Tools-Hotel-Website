@@ -210,9 +210,11 @@ namespace ProjectNehaPalace.Data.Migrations
 
                     b.Property<DateTime>("BookingDate");
 
-                    b.Property<DateTime>("CheckinDate");
+                    b.Property<DateTime?>("CheckinDate")
+                        .IsRequired();
 
-                    b.Property<DateTime>("CheckoutDate");
+                    b.Property<DateTime?>("CheckoutDate")
+                        .IsRequired();
 
                     b.Property<string>("CustomerID");
 
