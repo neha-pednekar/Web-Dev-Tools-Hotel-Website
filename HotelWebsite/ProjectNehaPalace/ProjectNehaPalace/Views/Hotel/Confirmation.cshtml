@@ -1,0 +1,146 @@
+﻿@model ProjectNehaPalace.Models.HotelModels.Booking
+
+
+
+<div class="internal-pages trans-header sticky booking-page">
+
+    <!-- Internal Page Header -->
+    <div class="internal-page-title about-page">
+        <ol class="breadcrumb">
+            <!-- Internal Page Breadcrumb -->
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="active">Customer Confirmation</li>
+        </ol>
+    </div>
+
+    <div id="booking-page-content">
+        <div class="booking-container container">
+
+            <div class="heading-box">
+                <h2>Neha Palace <span>Confirmation Receipt</span></h2>
+            </div>
+            <div class="main-booking-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+            </div>
+
+            <div class="reservation-summary col-md-6 col-md-push-3">
+                @if (Model != null)
+                {
+                    <h4>Reservation <b>Summary</b></h4>
+                    <div class="info-boxes">
+                        <div class="title"><span>Reservation <b>Info</b></span></div>
+                        <ul style="list-style:none">
+                            <li>
+                                <div class="info">Check in :</div>
+                                <div class="value">@Model.CheckinDate.Value</div>
+                            </li>
+                            <li>
+                                <div class="info">Check out :</div>
+                                <div class="value">@Model.CheckoutDate.Value</div>
+                            </li>
+                            <li>
+                                <div class="info">Adult :</div>
+                                <div class="value">@Model.NumberOfAdults</div>
+                            </li>
+                            <li>
+                                <div class="info">Child :</div>
+                                <div class="value">@Model.NumberOfChildren</div>
+                            </li>
+                        </ul>
+
+                        <div class="title"><span>Room <b>Info</b></span></div>
+                        @if (Model.Room != null)
+                        {
+                            @foreach (var room in Model.Room)
+                            {
+                                <ul style="list-style: none">
+                                    <li>
+                                        <div class="info">@room.RoomType</div>
+                                        <div class="value">$@room.RoomTariff</div>
+                                    </li>
+                                </ul>
+                            }
+                        }
+                        <div class="total-cost">
+                            <div class="info">Total Cost :</div>
+                            <div class="value">$@Model.TotalCost</div>
+                        </div>
+
+                    </div>
+
+                }
+            </div>
+
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="reservation-info col-md-6 col-md-offset-3">
+                <h4>Customer <b>Info</b></h4>
+                <div class="info-boxes">
+                    <div class="title"><span>Customer <b>Info</b></span></div>
+                    @if (Model != null && Model.Customer != null)
+                    {
+                        <ul style="list-style:none">
+                            <li>
+                                <div class="info">Booking ID :</div>
+                                <div class="value">@Model.BookingID</div>
+                            </li>
+                            <li>
+                                <div class="info">Booking Date :</div>
+                                <div class="value">@Model.BookingDate.ToShortDateString()</div>
+                            </li>
+                            <li>
+                                <div class="info">First Name :</div>
+                                <div class="value">@Model.Customer.FirstName</div>
+                            </li>
+                            <li>
+                                <div class="info">Last Name :</div>
+                                <div class="value">@Model.Customer.LastName</div>
+                            </li>
+                            <li>
+                                <div class="info">Email :</div>
+                                <div class="value">@Model.Customer.EmailAddress</div>
+                            </li>
+                            <li>
+                                <div class="info">Phone :</div>
+                                <div class="value">@Model.Customer.PhoneNumber</div>
+                            </li>
+                            @if (Model.Customer.Person.Address != null)
+                            {
+                                <li>
+                                    <div class="info">Mailing Address :</div>
+                                    <div class="value">
+                                        @(Model.Customer.Person.Address.AddressLine1
+                                                                + " " + Model.Customer.Person.Address.AddressLine2) <br />
+                                        @Model.Customer.Person.Address.City <br />
+                                        @Model.Customer.Person.Address.State <br />
+                                        @Model.Customer.Person.Address.ZipCode
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+
+
+
+
+
+

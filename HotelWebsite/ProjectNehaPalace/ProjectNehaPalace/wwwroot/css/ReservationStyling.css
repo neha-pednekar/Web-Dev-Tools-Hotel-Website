@@ -255,11 +255,11 @@
             background: #ecedee;
         }
 
-#booking-tab-contents label {
+/*#booking-tab-contents label {
     font-weight: normal;
     font-size: 18px;
     line-height: 30px;
-}
+}*/
 
 #booking-choose-date .booking-dates {
     padding: 0;

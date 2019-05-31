@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProjectNehaPalace.Models.HotelViewModels.Room>
+﻿@model IEnumerable<ProjectNehaPalace.Models.HotelModels.Room>
 
 @{
     ViewData["Title"] = "Index";
@@ -21,9 +21,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Availability)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RoomsAvailable)
-                </th>
+              
             <th></th>
         </tr>
     </thead>
@@ -73,9 +71,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Availability)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomsAvailable)
-            </td>
+            
             @*<td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

@@ -17,7 +17,7 @@ namespace ProjectNehaPalace.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -179,7 +179,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Address", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Address", b =>
                 {
                     b.Property<string>("AddressID")
                         .ValueGeneratedOnAdd();
@@ -203,20 +203,30 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Booking", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Booking", b =>
                 {
                     b.Property<string>("BookingID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("BookingDate");
 
-                    b.Property<DateTime>("CheckinDate");
+                    b.Property<DateTime?>("CheckinDate")
+                        .IsRequired();
 
-                    b.Property<DateTime>("CheckoutDate");
+                    b.Property<DateTime?>("CheckoutDate")
+                        .IsRequired();
 
                     b.Property<string>("CustomerID");
 
+                    b.Property<int>("DeluxeOneBedSuite");
+
+                    b.Property<int>("DeluxeTwoBedSuite");
+
+                    b.Property<int>("DoubleRoom");
+
                     b.Property<string>("EmployeeID");
+
+                    b.Property<int>("KingSuite");
 
                     b.Property<DateTime>("LastModifiedDate");
 
@@ -229,6 +239,10 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.Property<double>("NumberOfRooms");
 
                     b.Property<string>("PaymentID");
+
+                    b.Property<int>("RoyalSuite");
+
+                    b.Property<int>("SingleRoom");
 
                     b.Property<double>("TotalCost");
 
@@ -243,16 +257,20 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("Booking");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Customer", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Customer", b =>
                 {
                     b.Property<string>("CustomerID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("EmailAddress");
 
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
 
                     b.Property<string>("PersonID");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.HasKey("CustomerID");
 
@@ -261,7 +279,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.CustomerHistory", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.CustomerHistory", b =>
                 {
                     b.Property<string>("CustomerHistoryID")
                         .ValueGeneratedOnAdd();
@@ -275,7 +293,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("CustomerHistory");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.CustomerReview", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.CustomerReview", b =>
                 {
                     b.Property<string>("CustomerReviewID")
                         .ValueGeneratedOnAdd();
@@ -293,7 +311,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("CustomerReviews");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Department", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Department", b =>
                 {
                     b.Property<string>("DepartmentID")
                         .ValueGeneratedOnAdd();
@@ -305,7 +323,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("Department");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Employee", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Employee", b =>
                 {
                     b.Property<string>("EmployeeID")
                         .ValueGeneratedOnAdd();
@@ -331,7 +349,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("Employee");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.EmployeeCompensation", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.EmployeeCompensation", b =>
                 {
                     b.Property<string>("EmployeeCompensationID")
                         .ValueGeneratedOnAdd();
@@ -349,7 +367,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("EmployeeCompensation");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.NPInfo", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.NPInfo", b =>
                 {
                     b.Property<string>("NPInfoID")
                         .ValueGeneratedOnAdd();
@@ -359,7 +377,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("NPInfo");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Payment", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Payment", b =>
                 {
                     b.Property<string>("PaymentID")
                         .ValueGeneratedOnAdd();
@@ -377,7 +395,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("Payment");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Person", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Person", b =>
                 {
                     b.Property<string>("PersonID")
                         .ValueGeneratedOnAdd();
@@ -395,7 +413,7 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("Person");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.PhotoGallery", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.PhotoGallery", b =>
                 {
                     b.Property<string>("PhotoGalleryID")
                         .ValueGeneratedOnAdd();
@@ -409,12 +427,32 @@ namespace ProjectNehaPalace.Data.Migrations
                     b.ToTable("PhotoGallery");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Room", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.PreBookingInformation", b =>
+                {
+                    b.Property<string>("PreBookingInformationID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CheckinDate");
+
+                    b.Property<DateTime>("CheckoutDate");
+
+                    b.Property<DateTime>("DateEntered");
+
+                    b.Property<string>("LoggedInUserName");
+
+                    b.Property<int>("NumberOfAdults");
+
+                    b.Property<int>("NumberOfChildren");
+
+                    b.HasKey("PreBookingInformationID");
+
+                    b.ToTable("PreBookingInfo");
+                });
+
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Room", b =>
                 {
                     b.Property<int>("RoomID")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Availability");
 
                     b.Property<string>("BookingID");
 
@@ -428,9 +466,9 @@ namespace ProjectNehaPalace.Data.Migrations
 
                     b.Property<string>("RoomType");
 
-                    b.Property<int>("RoomsOccupied");
+                    b.Property<int>("RoomsSelected");
 
-                    b.Property<int>("TotalNumberOfRooms");
+                    b.Property<int>("TotalNumberOfRoomsAvailable");
 
                     b.HasKey("RoomID");
 
@@ -484,70 +522,70 @@ namespace ProjectNehaPalace.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Booking", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Booking", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Customer", "Customer")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerID");
 
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Employee", "Employee")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeID");
 
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Payment", "Payment")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Payment", "Payment")
                         .WithMany()
                         .HasForeignKey("PaymentID");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Customer", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Customer", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Person", "Person")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Person", "Person")
                         .WithMany()
                         .HasForeignKey("PersonID");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.CustomerHistory", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.CustomerHistory", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Booking", "Booking")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Booking", "Booking")
                         .WithMany()
                         .HasForeignKey("BookingID");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.CustomerReview", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.CustomerReview", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Customer", "Customer")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerID");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Employee", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Employee", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Department", "Department")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Department", "Department")
                         .WithMany()
                         .HasForeignKey("DepartmentID");
 
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Person", "Person")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Person", "Person")
                         .WithMany()
                         .HasForeignKey("PersonID");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.EmployeeCompensation", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.EmployeeCompensation", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Employee", "Employee")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeID");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Person", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Person", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Address", "Address")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressID");
                 });
 
-            modelBuilder.Entity("ProjectNehaPalace.Models.HotelViewModels.Room", b =>
+            modelBuilder.Entity("ProjectNehaPalace.Models.HotelModels.Room", b =>
                 {
-                    b.HasOne("ProjectNehaPalace.Models.HotelViewModels.Booking")
+                    b.HasOne("ProjectNehaPalace.Models.HotelModels.Booking")
                         .WithMany("Room")
                         .HasForeignKey("BookingID");
                 });

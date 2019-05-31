@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ProjectNehaPalace.Models;
-using ProjectNehaPalace.Models.HotelViewModels;
+using ProjectNehaPalace.Models.HotelModels;
 
 namespace ProjectNehaPalace.Controllers
 {
     public class RoomsController : Controller
     {
         //Hosted web API REST Service base url  
-        string Baseurl = "http://localhost:51947/";
+        string Baseurl = "http://localhost:51947/api/rooms";
         RoomClient roomClient = new RoomClient("http://localhost:50254");
         public async Task<ActionResult> Index()
         {

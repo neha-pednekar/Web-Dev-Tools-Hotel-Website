@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProjectNehaPalace.Models;
-using ProjectNehaPalace.Models.HotelViewModels;
+using ProjectNehaPalace.Models.HotelModels;
 
 namespace ProjectNehaPalace.Data
 {
@@ -29,6 +29,7 @@ namespace ProjectNehaPalace.Data
         public DbSet<CustomerReview> CustomerReviews { get; set; }
         public DbSet<NPInfo> NPInfo { get; set; }
         public DbSet<CustomerHistory> CustomerHistory { get; set; }
+        public DbSet<PreBookingInformation> PreBookingInfo { get; set; }
 
 
 
@@ -52,6 +53,7 @@ namespace ProjectNehaPalace.Data
             builder.Entity<CustomerReview>().ToTable("CustomerReviews");
             builder.Entity<CustomerHistory>().ToTable("CustomerHistory");
             builder.Entity<NPInfo>().ToTable("NPInfo");
+            builder.Entity<PreBookingInformation>().ToTable("PreBookingInfo");
 
         }
     }

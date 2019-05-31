@@ -1,5 +1,5 @@
-﻿@using ProjectNehaPalace.Models.HotelViewModels;
-@model ProjectNehaPalace.Models.HotelViewModels.Booking
+﻿@using ProjectNehaPalace.Models.HotelModels;
+@model ProjectNehaPalace.Models.HotelModels.Booking
 
 
     <div class="internal-pages trans-header sticky booking-page">
@@ -27,12 +27,12 @@
                         <div class="col-xs-12">
                             <address style="text-align:center">
                                 <strong style="color: #C5A46D">Customer Details:</strong><br>
-                                @Model.CustomerDetails.FirstName<br>
-                                @Model.CustomerDetails.Address.AddressLine1<br>
-                                @Model.CustomerDetails.Address.AddressLine2<br>
-                                @Model.CustomerDetails.Address.City<br>
-                                @Model.CustomerDetails.Address.State<br>
-                                @Model.CustomerDetails.Address.ZipCode<br>
+                                @Model.Customer.FirstName<br>
+                                @Model.Customer.Person.Address.AddressLine1<br>
+                                @Model.Customer.Person.Address.AddressLine2<br>
+                                @Model.Customer.Person.Address.City<br>
+                                @Model.Customer.Person.Address.State<br>
+                                @Model.Customer.Person.Address.ZipCode<br>
                             </address>
                         </div>
                     </div>
@@ -41,14 +41,14 @@
                     <div class="row">
                         <div class="col-xs-12" style="text-align:center">
                             <strong style="color: #C5A46D">Checkin Date:</strong><br>
-                            @Model.CheckinDate.ToShortDateString()<br>
+                            @Model.CheckinDate.Value.ToShortDateString()<br>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12"  style="text-align:center">
                             <strong style="color: #C5A46D">Checkout Date:</strong><br>
-                            @Model.CheckoutDate.ToShortDateString()<br>
+                            @Model.CheckoutDate.Value.ToShortDateString()<br>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                         <address>
                             <strong style="color: #C5A46D">Payment Method:</strong><br>
                             Visa ending **** XXXX<br>
-                            @Model.CustomerDetails.EmailAddress
+                            @Model.Customer.EmailAddress
                         </address>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                                     </thead>
                                     <tbody>
                                         <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                        @foreach (var roomModel in Model.RoomDetails)
+                                        @foreach (var roomModel in Model.Room)
     {
                                     <tr>
                                         <td>@roomModel.RoomType</td>

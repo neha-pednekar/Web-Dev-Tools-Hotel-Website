@@ -2,123 +2,72 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProjectNehaPalaceWebAPI.Models;
 using ProjectNehaPalace.ProjectNehaPalaceWebAPI.Models;
+using ProjectNehaPalaceWebAPI.Services;
 
 namespace ProjectNehaPalaceWebAPI.Controllers
 {
     [Produces("application/json")]
+    [Route("api/Rooms")]
     public class RoomsController : Controller
     {
-        RoomsManager rm = new RoomsManager();
-        private IHostingEnvironment _Env;
-        public RoomsController(IHostingEnvironment envrnmt)
+        private readonly IRoomRepository _roomRepository;
+        public RoomsController(IRoomRepository roomRepository)
         {
-            _Env = envrnmt;
+            _roomRepository = roomRepository;
         }
 
-        // GET api/students
+        // GET: api/rooms
         [HttpGet]
-        [Route("api/rooms")]
-        public IEnumerable<RoomModel> GetAsync()
+        public async Task<IEnumerable<RoomModel>> Get()
         {
-            var webRootInfo = _Env.WebRootPath;
-            var file = System.IO.Path.Combine(webRootInfo, "lastaccess.txt");
-            System.IO.File.WriteAllText(file, DateTime.Now.ToString());
-            return rm.GetAll;
+            return await _roomRepository.GetAllRooms();
         }
 
-        // GET api/Rooms/RoomType
-        [HttpGet]
-        [Route("api/[controller]/{id}")]
-        public async Task<IEnumerable<RoomModel>> Get(string roomType)
+        // GET: api/rooms/SingleRoom
+        [HttpGet("{name}", Name = "Get")]
+        public async Task<IActionResult> Get(string name)
         {
-            return await GetAsync(roomType);
+            var room = await _roomRepository.GetRoom(name);
+            if (room == null)
+                return new NotFoundResult();
+            return new ObjectResult(room);
         }
-
-        private Task<IEnumerable<RoomModel>> GetAsync(string roomType)
-        {
-            return Task.FromResult(rm.GetRoomsByRoomType(roomType));
-        }
-
+        
+        // POST: api/rooms
         [HttpPost]
-        [Route("api/[controller]/[action]")]
-        [ActionName("Post01")]
-        public async Task<StatusCodeResult> Post01([FromBody] RoomModel roomModel)
+        public async Task<IActionResult> Post([FromBody]RoomModel room)
         {
-            if (roomModel == null)
-            {
-                return new Microsoft.AspNetCore.Mvc.BadRequestResult();
-            }
-            if (await PostAsyncPartOne(roomModel))
-            {
-                return await PostAsyncPartTwo(roomModel);
-            }
-            else
-            {
-                rm.AddRoom(roomModel);
-                //dbContext.Companies.Add(company);
-                //await dbContext.SaveChangesAsync();
-                return new StatusCodeResult(201); //created
-            }
+            await _roomRepository.Create(room);
+            return new OkObjectResult(room);
         }
-        private Task<bool> PostAsyncPartOne(RoomModel roomModel)
+        
+        // PUT: api/rooms/SingleRoom
+        [HttpPut("{name}")]
+        public async Task<IActionResult> Put(string name, [FromBody]RoomModel room)
         {
-            return Task.FromResult(rm.GetAll.Any(_ => _.RoomType == roomModel.RoomType));
+            var roomFromDb = await _roomRepository.GetRoom(name);
+            if (roomFromDb == null)
+                return new NotFoundResult();
+            room.Id = roomFromDb.Id;
+            await _roomRepository.Update(name, room);
+            return new OkObjectResult(room);
         }
-        private Task<StatusCodeResult> PostAsyncPartTwo(RoomModel roomModel)
+        
+        // DELETE: api/rooms/XXXX
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> Delete(string name)
         {
-            if (rm.EditRoom(roomModel))
+            var roomFromDb = await _roomRepository.GetRoom(name);
+            if (roomFromDb == null)
             {
-                return Task.FromResult(new StatusCodeResult(200)); //success
+                return new NotFoundResult();
             }
-            else
-            {
-                return Task.FromResult(new StatusCodeResult(404)); //not found
-            }
-        }
 
-        // add new or edit
-        [HttpPut]
-        [Route("api/[controller]/[action]")]
-        [ActionName("Put01")]
-        public async Task<StatusCodeResult> Put01([FromBody] RoomModel roomModel)
-        {
-            if (roomModel == null)
-            {
-                return new Microsoft.AspNetCore.Mvc.BadRequestResult();
-            }
-            if (await PostAsyncPartOne(roomModel))
-            {
-                return await PostAsyncPartTwo(roomModel);
-            }
-            else
-            {
-                rm.AddRoom(roomModel);
-                //dbContext.Companies.Add(company);
-                //await dbContext.SaveChangesAsync();
-                return new StatusCodeResult(201); //created
-            }
-        }
-
-        // delete
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        [Route("api/[controller]/{id}")]
-        public async Task<StatusCodeResult> Delete(string roomType)
-        {
-            return await DeleteAsync(roomType);
-        }
-        private Task<StatusCodeResult> DeleteAsync(string roomType)
-        {
-            if (rm.DeleteRoom(roomType))
-                return Task.FromResult(new StatusCodeResult(200));
-            else
-                return Task.FromResult(new StatusCodeResult(404));
+            await _roomRepository.Delete(name);
+            return new OkResult();
         }
     }
-
 }
