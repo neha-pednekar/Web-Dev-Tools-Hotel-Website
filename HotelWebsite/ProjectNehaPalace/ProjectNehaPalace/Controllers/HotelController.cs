@@ -136,12 +136,43 @@ namespace ProjectNehaPalace.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        public IActionResult Confirmation()
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _context.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+
+                if (!String.IsNullOrWhiteSpace(user.UserName))
+                {
+                    var mostRecentBooking = _context.Booking
+                                                    .Where(b => b.Customer.EmailAddress == user.UserName)
+                                                    .OrderByDescending(x => x.BookingDate)
+                                                    .Select(bk => bk)
+                                                    .FirstOrDefault();
+
+                    if (mostRecentBooking != null)
+                    {
+                        return View("Confirmation", mostRecentBooking);
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                }
+                return View();
+            }
+            return View();
+        }
+
+        [Authorize]
         [HttpPost]
         public IActionResult Confirmation(Booking booking)
         {
             if (ModelState.IsValid)
             {
-                double totalBookingAmount = 0.0;
+                int totalNumberOfDays = 0;
+                double totalTariffAmountPerDay = 0.0;
                 booking.Room = new List<Room>();
 
                 //First check the availability of the room from the API
@@ -180,119 +211,187 @@ namespace ProjectNehaPalace.Controllers
                              && room.RoomType == RoomType.SingleRoom.ToString()
                              && room.RoomsAvailable >= booking.SingleRoom)
                             {
-                                var singleRoom = new Room();
-
-                                singleRoom.IsAvailable = true;
-                                singleRoom.LastModifiedDate = DateTime.Now;
-                                singleRoom.RoomsSelected = booking.SingleRoom;
-                                singleRoom.RoomTariff = room.RoomTariff;
-                                singleRoom.RoomType = room.RoomType;
-                                singleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
-
-                                booking.Room.Add(singleRoom);
-
-                                room.RoomsAvailable--;
-                                room.RoomsBooked++;
-
-                                var putTask = client.PutAsJsonAsync<RoomModel>("rooms/SingleRoom", room);
-                                putTask.Wait();
-
-                                var putResult = putTask.Result;
-
-                                if(!putResult.IsSuccessStatusCode)
+                                for(int i=0; i<booking.SingleRoom; i++)
                                 {
-                                    ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                    var singleRoom = new Room();
+
+                                    singleRoom.IsAvailable = true;
+                                    singleRoom.LastModifiedDate = DateTime.Now;
+                                    singleRoom.RoomsSelected = booking.SingleRoom;
+                                    singleRoom.RoomTariff = room.RoomTariff;
+                                    singleRoom.RoomType = room.RoomType;
+                                    singleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+
+                                    booking.Room.Add(singleRoom);
+
+                                    room.RoomsAvailable--;
+                                    room.RoomsBooked++;
+
+                                    var putTask = client.PutAsJsonAsync<RoomModel>("rooms/SingleRoom", room);
+                                    putTask.Wait();
+
+                                    var putResult = putTask.Result;
+
+                                    if (!putResult.IsSuccessStatusCode)
+                                    {
+                                        ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                    }
                                 }
                             }
                             else if (booking.DoubleRoom > 0
                              && room.RoomType == RoomType.DoubleRoom.ToString()
                              && room.RoomsAvailable >= booking.DoubleRoom)
                             {
-                                var doubleRoom = new Room();
+                                for (int i = 0; i < booking.DoubleRoom; i++)
+                                {
+                                    var doubleRoom = new Room();
 
-                                doubleRoom.IsAvailable = true;
-                                doubleRoom.LastModifiedDate = DateTime.Now;
-                                doubleRoom.RoomsSelected = booking.DoubleRoom;
-                                doubleRoom.RoomTariff = room.RoomTariff;
-                                doubleRoom.RoomType = room.RoomType;
-                                doubleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                    doubleRoom.IsAvailable = true;
+                                    doubleRoom.LastModifiedDate = DateTime.Now;
+                                    doubleRoom.RoomsSelected = booking.DoubleRoom;
+                                    doubleRoom.RoomTariff = room.RoomTariff;
+                                    doubleRoom.RoomType = room.RoomType;
+                                    doubleRoom.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                                booking.Room.Add(doubleRoom);
+                                    booking.Room.Add(doubleRoom);
 
-                                room.RoomsAvailable--;
-                                room.RoomsBooked++;
+                                    room.RoomsAvailable--;
+                                    room.RoomsBooked++;
+
+                                    var putTask = client.PutAsJsonAsync<RoomModel>("rooms/DoubleRoom", room);
+                                    putTask.Wait();
+
+                                    var putResult = putTask.Result;
+
+                                    if (!putResult.IsSuccessStatusCode)
+                                    {
+                                        ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                    }
+                                }
                             }
                             else if (booking.DeluxeOneBedSuite > 0
                              && room.RoomType == RoomType.DeluxeOneBedroomSuite.ToString()
                              && room.RoomsAvailable >= booking.DeluxeOneBedSuite)
                             {
-                                var deluxeOneBedSuite = new Room();
+                                for (int i = 0; i < booking.DeluxeOneBedSuite; i++)
+                                {
+                                    var deluxeOneBedSuite = new Room();
 
-                                deluxeOneBedSuite.IsAvailable = true;
-                                deluxeOneBedSuite.LastModifiedDate = DateTime.Now;
-                                deluxeOneBedSuite.RoomsSelected = booking.DeluxeOneBedSuite;
-                                deluxeOneBedSuite.RoomTariff = room.RoomTariff;
-                                deluxeOneBedSuite.RoomType = room.RoomType;
-                                deluxeOneBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                    deluxeOneBedSuite.IsAvailable = true;
+                                    deluxeOneBedSuite.LastModifiedDate = DateTime.Now;
+                                    deluxeOneBedSuite.RoomsSelected = booking.DeluxeOneBedSuite;
+                                    deluxeOneBedSuite.RoomTariff = room.RoomTariff;
+                                    deluxeOneBedSuite.RoomType = room.RoomType;
+                                    deluxeOneBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                                booking.Room.Add(deluxeOneBedSuite);
+                                    booking.Room.Add(deluxeOneBedSuite);
 
-                                room.RoomsAvailable--;
-                                room.RoomsBooked++;
+                                    room.RoomsAvailable--;
+                                    room.RoomsBooked++;
+
+                                    var putTask = client.PutAsJsonAsync<RoomModel>("rooms/DeluxeOneBedSuite", room);
+                                    putTask.Wait();
+
+                                    var putResult = putTask.Result;
+
+                                    if (!putResult.IsSuccessStatusCode)
+                                    {
+                                        ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                    }
+                                }
                             }
                             else if (booking.DeluxeTwoBedSuite > 0
                              && room.RoomType == RoomType.DeluxeTwoBedroomSuite.ToString()
                              && room.RoomsAvailable >= booking.DeluxeTwoBedSuite)
                             {
-                                var deluxeTwoBedSuite = new Room();
+                                for (int i = 0; i < booking.DeluxeTwoBedSuite; i++)
+                                {
+                                    var deluxeTwoBedSuite = new Room();
 
-                                deluxeTwoBedSuite.IsAvailable = true;
-                                deluxeTwoBedSuite.LastModifiedDate = DateTime.Now;
-                                deluxeTwoBedSuite.RoomsSelected = booking.DeluxeTwoBedSuite;
-                                deluxeTwoBedSuite.RoomTariff = room.RoomTariff;
-                                deluxeTwoBedSuite.RoomType = room.RoomType;
-                                deluxeTwoBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                    deluxeTwoBedSuite.IsAvailable = true;
+                                    deluxeTwoBedSuite.LastModifiedDate = DateTime.Now;
+                                    deluxeTwoBedSuite.RoomsSelected = booking.DeluxeTwoBedSuite;
+                                    deluxeTwoBedSuite.RoomTariff = room.RoomTariff;
+                                    deluxeTwoBedSuite.RoomType = room.RoomType;
+                                    deluxeTwoBedSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                                booking.Room.Add(deluxeTwoBedSuite);
+                                    booking.Room.Add(deluxeTwoBedSuite);
 
-                                room.RoomsAvailable--;
-                                room.RoomsBooked++;
+                                    room.RoomsAvailable--;
+                                    room.RoomsBooked++;
+
+                                    var putTask = client.PutAsJsonAsync<RoomModel>("rooms/DeluxeTwoBedSuite", room);
+                                    putTask.Wait();
+
+                                    var putResult = putTask.Result;
+
+                                    if (!putResult.IsSuccessStatusCode)
+                                    {
+                                        ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                    }
+                                }
                             }
                             else if (booking.RoyalSuite > 0
                              && room.RoomType == RoomType.RoyalSuit.ToString()
                              && room.RoomsAvailable >= booking.RoyalSuite)
                             {
-                                var royalSuite = new Room();
+                                for (int i = 0; i < booking.RoyalSuite; i++)
+                                {
+                                    var royalSuite = new Room();
 
-                                royalSuite.IsAvailable = true;
-                                royalSuite.LastModifiedDate = DateTime.Now;
-                                royalSuite.RoomsSelected = booking.RoyalSuite;
-                                royalSuite.RoomTariff = room.RoomTariff;
-                                royalSuite.RoomType = room.RoomType;
-                                royalSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                    royalSuite.IsAvailable = true;
+                                    royalSuite.LastModifiedDate = DateTime.Now;
+                                    royalSuite.RoomsSelected = booking.RoyalSuite;
+                                    royalSuite.RoomTariff = room.RoomTariff;
+                                    royalSuite.RoomType = room.RoomType;
+                                    royalSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                                booking.Room.Add(royalSuite);
+                                    booking.Room.Add(royalSuite);
 
-                                room.RoomsAvailable--;
-                                room.RoomsBooked++;
+                                    room.RoomsAvailable--;
+                                    room.RoomsBooked++;
+
+                                    var putTask = client.PutAsJsonAsync<RoomModel>("rooms/RoyalSuite", room);
+                                    putTask.Wait();
+
+                                    var putResult = putTask.Result;
+
+                                    if (!putResult.IsSuccessStatusCode)
+                                    {
+                                        ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                    }
+                                }
                             }
                             else if (booking.KingSuite > 0
                              && room.RoomType == RoomType.KingSuit.ToString()
                              && room.RoomsAvailable >= booking.KingSuite)
                             {
-                                var kingSuite = new Room();
+                                for (int i = 0; i < booking.KingSuite; i++)
+                                {
+                                    var kingSuite = new Room();
 
-                                kingSuite.IsAvailable = true;
-                                kingSuite.LastModifiedDate = DateTime.Now;
-                                kingSuite.RoomsSelected = booking.KingSuite;
-                                kingSuite.RoomTariff = room.RoomTariff;
-                                kingSuite.RoomType = room.RoomType;
-                                kingSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
+                                    kingSuite.IsAvailable = true;
+                                    kingSuite.LastModifiedDate = DateTime.Now;
+                                    kingSuite.RoomsSelected = booking.KingSuite;
+                                    kingSuite.RoomTariff = room.RoomTariff;
+                                    kingSuite.RoomType = room.RoomType;
+                                    kingSuite.TotalNumberOfRoomsAvailable = room.RoomsAvailable;
 
-                                booking.Room.Add(kingSuite);
+                                    booking.Room.Add(kingSuite);
 
-                                room.RoomsAvailable--;
-                                room.RoomsBooked++;
+                                    room.RoomsAvailable--;
+                                    room.RoomsBooked++;
+
+                                    var putTask = client.PutAsJsonAsync<RoomModel>("rooms/KingSuite", room);
+                                    putTask.Wait();
+
+                                    var putResult = putTask.Result;
+
+                                    if (!putResult.IsSuccessStatusCode)
+                                    {
+                                        ModelState.AddModelError(string.Empty, "Unable to update the API");
+                                    }
+                                }
                             }
                         }
                     }
@@ -302,22 +401,55 @@ namespace ProjectNehaPalace.Controllers
 
                     foreach (Room room in booking.Room)
                     {
-                        totalBookingAmount += room.RoomTariff;
+                        totalTariffAmountPerDay += room.RoomTariff;
                     }
 
-                    booking.TotalCost = totalBookingAmount;
+                    totalNumberOfDays = booking.CheckoutDate.Value.Day - booking.CheckinDate.Value.Day;
+                    booking.TotalCost = totalTariffAmountPerDay * totalNumberOfDays;
 
                     //Remaining Room Details
                     booking.BookingDate = DateTime.Today;
+                    booking.LastModifiedDate = DateTime.Today;
+
+                    //Fill the person details
+                    booking.Customer.Person.FirstName = booking.Customer.FirstName;
+                    booking.Customer.Person.LastName = booking.Customer.LastName;
+
+                    //Fill the payment details
+                    booking.Payment = new Payment();
+                    booking.Payment.CreditCardNumber = "XXXX XXXX XXXX XXXX";
+                    booking.Payment.CVV = 888;
+                    booking.Payment.ExpirationDate = DateTime.Today;
+                    booking.Payment.NameOnCard = "Dummy Dummy";
+
+                    //Fill the Employee Details(This employee is like a system admin)
+                    booking.Employee = new Employee();
+                    booking.Employee.Department = new Department();
+                    booking.Employee.Department.DepartmentName = "Staff";
+                    booking.Employee.EmployeeCode = "XACA1234";
+                    booking.Employee.FirstName = "John";
+                    booking.Employee.LastName = "Doe";
+                    booking.Employee.Person = new Person();
+                    booking.Employee.Person.FirstName = booking.Employee.FirstName;
+                    booking.Employee.Person.LastName = booking.Employee.LastName;
+                    booking.Employee.Person.Address = new Address();
+                    booking.Employee.Person.Address.AddressLine1 = "Dummy Line 1";
+                    booking.Employee.Person.Address.AddressLine1 = "Dummy Line 2";
+                    booking.Employee.Person.Address.AddressType = "Office";
+                    booking.Employee.Person.Address.City = "Newark";
+                    booking.Employee.Person.Address.State = "New Jersey";
+                    booking.Employee.Person.Address.Country = "United States";
 
                     //Generate a booking ID 
                     booking.BookingID = HelperMethods.HelperMethods.RandomString(10);
                     booking.BookingDate = DateTime.Today;
 
 
-
                 }
-                
+
+                //Save the booking details into the table
+                _context.Booking.AddAsync(booking);
+                _context.SaveChangesAsync();
 
             }
 

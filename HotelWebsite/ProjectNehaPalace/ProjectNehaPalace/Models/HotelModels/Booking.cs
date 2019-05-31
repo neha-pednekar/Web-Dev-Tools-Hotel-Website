@@ -51,7 +51,7 @@ namespace ProjectNehaPalace.Models.HotelModels
         public int NumberOfAdults { get; set; }
 
         [Required]
-        [Range(1,4)]
+        [Range(0,4)]
         [DisplayName("Number of Children")]
         public int NumberOfChildren { get; set; }
 
