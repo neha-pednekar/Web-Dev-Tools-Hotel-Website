@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectNehaPalaceWebAPI.Models;
 using ProjectNehaPalaceWebAPI.Data;
 using ProjectNehaPalaceWebAPI.Services;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ProjectNehaPalaceWebAPI
 {
@@ -50,6 +51,12 @@ namespace ProjectNehaPalaceWebAPI
             services.AddTransient<IRoomContext, RoomContext>();
             services.AddTransient<IRoomRepository, RoomRepository>();
 
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Neha Palace API", Version = "v1" });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,7 +76,14 @@ namespace ProjectNehaPalaceWebAPI
             loggerFactory.AddDebug();
 
             app.UseMvc();
-            //app.UseSwagger();
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Neha Palace API V1");
+            });
         }
     }
 }
